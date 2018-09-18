@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[字符串哈希算法——BKDRHash]]></title>
+    <url>%2Fs%2Fstr-hash-func-bkdrhash.html</url>
+    <content type="text"><![CDATA[BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。其中，最优的字符串哈希算法BKDRHash函数实现如下：// BKDR Hash Functionunsigned int BKDRHash(const char *str)&#123; unsigned int seed = 131; // 31 131 1313 13131 131313 etc.. unsigned int hash = 0; while (*str)&#123; hash = hash * seed + (*str++); &#125; return (hash &amp; 0x7FFFFFFF);&#125; 比如，哈希字符串“Hello,World!”将会得到数字“632968537”。 References:[1] https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>哈希</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2Fs%2Fhello-world.html</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new "My New Post" More info: Writing Run server$ hexo server More info: Server Generate static files$ hexo generate More info: Generating Deploy to remote sites$ hexo deploy More info: Deployment]]></content>

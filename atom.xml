@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-09-18T10:55:05.863Z</updated>
+  <updated>2018-09-18T12:28:20.993Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字符串哈希算法——BKDRHash</title>
+    <link href="http://qingdujun.com/s/str-hash-func-bkdrhash.html"/>
+    <id>http://qingdujun.com/s/str-hash-func-bkdrhash.html</id>
+    <published>2018-09-18T12:24:59.000Z</published>
+    <updated>2018-09-18T12:28:20.993Z</updated>
+    
+    <content type="html"><![CDATA[<p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><a id="more"></a><br>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p><p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Mathematics" scheme="http://qingdujun.com/categories/Mathematics/"/>
+    
+    
+      <category term="哈希" scheme="http://qingdujun.com/tags/%E5%93%88%E5%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
