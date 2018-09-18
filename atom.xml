@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-09-18T12:28:20.993Z</updated>
+  <updated>2018-09-18T13:50:40.709Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>字符串哈希算法——BKDRHash</title>
-    <link href="http://qingdujun.com/s/str-hash-func-bkdrhash.html"/>
-    <id>http://qingdujun.com/s/str-hash-func-bkdrhash.html</id>
+    <link href="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html"/>
+    <id>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</id>
     <published>2018-09-18T12:24:59.000Z</published>
-    <updated>2018-09-18T12:28:20.993Z</updated>
+    <updated>2018-09-18T13:50:40.709Z</updated>
     
     <content type="html"><![CDATA[<p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><a id="more"></a><br>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p><p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>]]></content>
     
@@ -40,10 +40,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://qingdujun.com/s/hello-world.html"/>
-    <id>http://qingdujun.com/s/hello-world.html</id>
-    <published>2018-09-18T10:55:05.919Z</published>
-    <updated>2018-09-18T10:55:05.863Z</updated>
+    <link href="http://qingdujun.com/zh-CN/hello-world.html"/>
+    <id>http://qingdujun.com/zh-CN/hello-world.html</id>
+    <published>2018-09-18T12:18:45.000Z</published>
+    <updated>2018-09-18T13:48:57.215Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     

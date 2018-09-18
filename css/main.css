@@ -1902,7 +1902,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6c82c2;
+  background: #b0ffa8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3153,4 +3153,7 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+img.img-topic {
+  width: 100%;
 }

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</loc>
+    
+    <lastmod>2018-09-18T13:50:40.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://qingdujun.com/zh-CN/hello-world.html</loc>
+    
+    <lastmod>2018-09-18T13:48:57.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qingdujun.com/categories/index.html</loc>
     
     <lastmod>2018-09-18T12:35:48.623Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>http://qingdujun.com/tags/index.html</loc>
     
     <lastmod>2018-09-18T12:35:15.743Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qingdujun.com/s/str-hash-func-bkdrhash.html</loc>
-    
-    <lastmod>2018-09-18T12:28:20.993Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qingdujun.com/s/hello-world.html</loc>
-    
-    <lastmod>2018-09-18T10:55:05.863Z</lastmod>
     
   </url>
   
