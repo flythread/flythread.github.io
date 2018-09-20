@@ -108,18 +108,20 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta name="keywords" content="人工智能 , 搜索引擎 , 信息检索 , 推荐系统 , 知识图谱 , 深度学习 , 机器学习 , 深度强化学习 , 操作系统 , 分布式架构 , 问答系统 , 计算机视觉 , CV , 自然语言处理 , NLP">
+  <meta name="description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
+<meta name="keywords" content="搜索引擎,Lucene">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://qingdujun.com/zh-CN/hello-world.html">
+<meta property="og:title" content="搜索篇（0）Lucene环境配置">
+<meta property="og:url" content="http://qingdujun.com/zh-CN/lucene-env-config.html">
 <meta property="og:site_name" content="MORE INTELLIGENT">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-18T13:48:57.215Z">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/lucene-env-config/lucene-jar.png">
+<meta property="og:updated_time" content="2018-09-20T11:58:00.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="搜索篇（0）Lucene环境配置">
+<meta name="twitter:description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/lucene-env-config/lucene-jar.png">
 
 
 
@@ -128,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://qingdujun.com/zh-CN/hello-world.html"/>
+  <link rel="canonical" href="http://qingdujun.com/zh-CN/lucene-env-config.html"/>
 
 
 
@@ -138,7 +140,7 @@
   };
 </script>
 
-  <title>Hello World | MORE INTELLIGENT</title>
+  <title>搜索篇（0）Lucene环境配置 | MORE INTELLIGENT</title>
   
 
 
@@ -358,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/hello-world.html">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/lucene-env-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DUJUN QING">
@@ -375,7 +377,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hello World
+          <h2 class="post-title" itemprop="name headline">搜索篇（0）Lucene环境配置
               
             
           </h2>
@@ -400,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2018-09-18 20:18:45 / 修改时间：21:48:57" itemprop="dateCreated datePublished" datetime="2018-09-18T20:18:45+08:00">2018-09-18</time>
+              <time title="创建时间：2018-09-20 19:49:01 / 修改时间：19:58:00" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:01+08:00">2018-09-20</time>
             
 
             
@@ -411,6 +413,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -418,7 +438,7 @@
 
           
           
-             <span id="/zh-CN/hello-world.html" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/zh-CN/lucene-env-config.html" class="leancloud_visitors" data-flag-title="搜索篇（0）Lucene环境配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,16 +469,21 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。<br><img src="/zh-CN/lucene-env-config/lucene-jar.png"><br><a id="more"></a><br>本系列文章重点对Lucene全文检索工具库进行了分析，其中索引部分包括中文分词及其常见的分词器介绍、倒排索引的构建、索引结构的分析，检索部分涵盖了基本查询方式介绍、VSM评分机制、自定义排序方式以及与SQL查询异同比较；最后简单的介绍了Luke工具的使用。</p>
+<h1 id="配置Lucene开发环境"><a href="#配置Lucene开发环境" class="headerlink" title="配置Lucene开发环境"></a>配置Lucene开发环境</h1><ul>
+<li>安装Java开发环境。（JDK 8 up）</li>
+<li><p>下载Lucene：<a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p>
+</li>
+<li><p>在Eclipse（或MyEclipse[推荐]）中，创建项目名HelloLucene（推荐Web Project），引入Lucene JAR包。</p>
+<blockquote>
+<p>注：Add External JARs…(右击项目-&gt;Build Path)</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="附录（配置git）"><a href="#附录（配置git）" class="headerlink" title="附录（配置git）"></a>附录（配置git）</h1><p>作为一名程序员亦或是学生，从github上抄代码的能力不可或缺。以下为git配置命令，请将name、email设置成自己的~<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;qingdujun&quot;</span><br><span class="line">$ git config --global user.email &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>运行ssh-keygen命令后，直接一路敲击回车键即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>Generating public/private rsa key pair.<br>Enter file in which to save the key (/home/qingdujun/.ssh/id_rsa):<br>Created directory ‘/home/qingdujun/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/qingdujun/.ssh/id_rsa.<br>Your public key has been saved in /home/qingdujun/.ssh/id_rsa.pub.<br>根据具体的提示，如我的是/home/qingdujun/.ssh/id_rsa.pub.将该文件内容。拷贝至，<br>github.com&gt;settings&gt;SSH and GPGkeys−&gt;New SSH key</p>
+<p>References:<br>[1] <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br>[2] <a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE" target="_blank" rel="noopener">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE</a><br>[3] <a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/06/git_remote.html</a><br>[4] <a href="https://www.genuitec.com/products/myeclipse/download/" target="_blank" rel="noopener">https://www.genuitec.com/products/myeclipse/download/</a><br>[5] <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>[6] <a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p>
 
       
     </div>
@@ -477,6 +502,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/搜索引擎/" rel="tag"># 搜索引擎</a>
+          
+            <a href="/tags/Lucene/" rel="tag"># Lucene</a>
+          
+        </div>
+      
 
       
       
@@ -486,15 +519,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/zh-CN/str-hash-func-bkdrhash.html" rel="next" title="字符串哈希算法——BKDRHash">
+                <i class="fa fa-chevron-left"></i> 字符串哈希算法——BKDRHash
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/zh-CN/str-hash-func-bkdrhash.html" rel="prev" title="字符串哈希算法——BKDRHash">
-                字符串哈希算法——BKDRHash <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Lucene开发环境"><span class="nav-text">配置Lucene开发环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录（配置git）"><span class="nav-text">附录（配置git）</span></a></li></ol></div>
             
 
           </div>

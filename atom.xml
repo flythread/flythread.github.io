@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-09-18T13:50:40.709Z</updated>
+  <updated>2018-09-20T11:58:00.548Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -17,17 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>搜索篇（0）Lucene环境配置</title>
+    <link href="http://qingdujun.com/zh-CN/lucene-env-config.html"/>
+    <id>http://qingdujun.com/zh-CN/lucene-env-config.html</id>
+    <published>2018-09-20T11:49:01.000Z</published>
+    <updated>2018-09-20T11:58:00.548Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。<br><img src="/zh-CN/lucene-env-config/lucene-jar.png"><br><a id="more"></a><br>本系列文章重点对Lucene全文检索工具库进行了分析，其中索引部分包括中文分词及其常见的分词器介绍、倒排索引的构建、索引结构的分析，检索部分涵盖了基本查询方式介绍、VSM评分机制、自定义排序方式以及与SQL查询异同比较；最后简单的介绍了Luke工具的使用。</p><h1 id="配置Lucene开发环境"><a href="#配置Lucene开发环境" class="headerlink" title="配置Lucene开发环境"></a>配置Lucene开发环境</h1><ul><li>安装Java开发环境。（JDK 8 up）</li><li><p>下载Lucene：<a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p></li><li><p>在Eclipse（或MyEclipse[推荐]）中，创建项目名HelloLucene（推荐Web Project），引入Lucene JAR包。</p><blockquote><p>注：Add External JARs…(右击项目-&gt;Build Path)</p></blockquote></li></ul><h1 id="附录（配置git）"><a href="#附录（配置git）" class="headerlink" title="附录（配置git）"></a>附录（配置git）</h1><p>作为一名程序员亦或是学生，从github上抄代码的能力不可或缺。以下为git配置命令，请将name、email设置成自己的~<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;qingdujun&quot;</span><br><span class="line">$ git config --global user.email &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p><p>运行ssh-keygen命令后，直接一路敲击回车键即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p><p>Generating public/private rsa key pair.<br>Enter file in which to save the key (/home/qingdujun/.ssh/id_rsa):<br>Created directory ‘/home/qingdujun/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/qingdujun/.ssh/id_rsa.<br>Your public key has been saved in /home/qingdujun/.ssh/id_rsa.pub.<br>根据具体的提示，如我的是/home/qingdujun/.ssh/id_rsa.pub.将该文件内容。拷贝至，<br>github.com&gt;settings&gt;SSH and GPGkeys−&gt;New SSH key</p><p>References:<br>[1] <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br>[2] <a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE" target="_blank" rel="noopener">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE</a><br>[3] <a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/06/git_remote.html</a><br>[4] <a href="https://www.genuitec.com/products/myeclipse/download/" target="_blank" rel="noopener">https://www.genuitec.com/products/myeclipse/download/</a><br>[5] <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>[6] <a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。&lt;br&gt;&lt;img src=&quot;/zh-CN/lucene-env-config/lucene-jar.png&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
+    
+    
+      <category term="搜索引擎" scheme="http://qingdujun.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
+    
+  </entry>
+  
+  <entry>
     <title>字符串哈希算法——BKDRHash</title>
     <link href="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html"/>
     <id>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</id>
     <published>2018-09-18T12:24:59.000Z</published>
-    <updated>2018-09-18T13:50:40.709Z</updated>
+    <updated>2018-09-18T14:40:37.028Z</updated>
     
-    <content type="html"><![CDATA[<p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><a id="more"></a><br>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p><p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>]]></content>
+    <content type="html"><![CDATA[<p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><img src="/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg"></p><a id="more"></a><p>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p><p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。&lt;br&gt;
+      &lt;p&gt;BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。&lt;br&gt;&lt;img src=&quot;/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg&quot;&gt;&lt;/p&gt;
     
     </summary>
     

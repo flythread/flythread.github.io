@@ -116,10 +116,12 @@
 <meta property="og:site_name" content="MORE INTELLIGENT">
 <meta property="og:description" content="BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-18T13:50:40.709Z">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg">
+<meta property="og:updated_time" content="2018-09-18T14:40:37.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串哈希算法——BKDRHash">
 <meta name="twitter:description" content="BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg">
 
 
 
@@ -400,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2018-09-18 20:24:59 / 修改时间：21:50:40" itemprop="dateCreated datePublished" datetime="2018-09-18T20:24:59+08:00">2018-09-18</time>
+              <time title="创建时间：2018-09-18 20:24:59 / 修改时间：22:40:37" itemprop="dateCreated datePublished" datetime="2018-09-18T20:24:59+08:00">2018-09-18</time>
             
 
             
@@ -467,7 +469,9 @@
       
 
       
-        <p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><a id="more"></a><br>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><img src="/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg"></p>
+<a id="more"></a>
+<p>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p>
 <p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>
 
@@ -512,6 +516,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh-CN/lucene-env-config.html" rel="prev" title="搜索篇（0）Lucene环境配置">
+                搜索篇（0）Lucene环境配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -576,7 +584,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -591,7 +599,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -606,7 +616,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
