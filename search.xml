@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[搜索篇（1）Lucene全文检索工具库架构]]></title>
+    <url>%2Fzh-CN%2Flucene-arch.html</url>
+    <content type="text"><![CDATA[上一篇文章《搜索篇（0）Lucene环境配置》讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。需要强调的是，Lucene并不具备搜索引擎的完整特性，它只关注文本的索引和搜索，并提供了一套十分强大却又简单易用的核心API，隐藏了复杂的索引和搜索实现过程。所以可以简单的将Lucene视为应用程序下的一个接口层，如上图所示。 网络爬虫只为搜索引擎采集到海量文档信息，内容的有效检索还需要索引技术来实现。搜索引擎的索引器负责生成索引文件，其工作上下文结构如下图所示。其中，文本解析器主要包括中文分词、垃圾信息过滤等模块，而中文分词(Chinese Word Segmentation)是对信息处理的基础，如果没有中文分词，根本无法建立高效的索引结构。 References:[1] Michael McCandless, Erik Hatcher, and Otis Gospodnetić, Lucene in Action(Second Edition)[2] https://baike.baidu.com/item/Lucene ,2018-9-13[3] https://lucene.apache.org/core/7_4_0/index.html ,2018-9-13[4] DJ. QING, Android-based virtual chat robot development]]></content>
+      <categories>
+        <category>Artificial Intelligence</category>
+      </categories>
+      <tags>
+        <tag>搜索引擎</tag>
+        <tag>Lucene</tag>
+        <tag>架构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[搜索篇（0）Lucene环境配置]]></title>
     <url>%2Fzh-CN%2Flucene-env-config.html</url>
     <content type="text"><![CDATA[Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。本系列文章重点对Lucene全文检索工具库进行了分析，其中索引部分包括中文分词及其常见的分词器介绍、倒排索引的构建、索引结构的分析，检索部分涵盖了基本查询方式介绍、VSM评分机制、自定义排序方式以及与SQL查询异同比较；最后简单的介绍了Luke工具的使用。 配置Lucene开发环境 安装Java开发环境。（JDK 8 up） 下载Lucene：http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0 在Eclipse（或MyEclipse[推荐]）中，创建项目名HelloLucene（推荐Web Project），引入Lucene JAR包。 注：Add External JARs…(右击项目-&gt;Build Path) 附录（配置git）作为一名程序员亦或是学生，从github上抄代码的能力不可或缺。以下为git配置命令，请将name、email设置成自己的~$ git config --global user.name &quot;qingdujun&quot;$ git config --global user.email &quot;123456@gmail.com&quot; 运行ssh-keygen命令后，直接一路敲击回车键即可。$ ssh-keygen -t rsa -C &quot;123456@gmail.com&quot; Generating public/private rsa key pair.Enter file in which to save the key (/home/qingdujun/.ssh/id_rsa):Created directory ‘/home/qingdujun/.ssh’.Enter passphrase (empty for no passphrase):Enter same passphrase again:Your identification has been saved in /home/qingdujun/.ssh/id_rsa.Your public key has been saved in /home/qingdujun/.ssh/id_rsa.pub.根据具体的提示，如我的是/home/qingdujun/.ssh/id_rsa.pub.将该文件内容。拷贝至，github.com&gt;settings&gt;SSH and GPGkeys−&gt;New SSH key References:[1] https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000[2] https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE[3] http://www.ruanyifeng.com/blog/2014/06/git_remote.html[4] https://www.genuitec.com/products/myeclipse/download/[5] http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[6] http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0]]></content>

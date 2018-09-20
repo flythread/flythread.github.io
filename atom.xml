@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-09-20T11:58:00.548Z</updated>
+  <updated>2018-09-20T12:18:57.087Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索篇（1）Lucene全文检索工具库架构</title>
+    <link href="http://qingdujun.com/zh-CN/lucene-arch.html"/>
+    <id>http://qingdujun.com/zh-CN/lucene-arch.html</id>
+    <published>2018-09-20T12:06:52.000Z</published>
+    <updated>2018-09-20T12:18:57.087Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇文章<a href="/zh-CN/lucene-env-config.html">《搜索篇（0）Lucene环境配置》</a>讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。<br><img src="/zh-CN/lucene-arch/lucene-arch.png" title="Lucene架构"><br><a id="more"></a><br>需要强调的是，Lucene并不具备搜索引擎的完整特性，它只关注文本的索引和搜索，并提供了一套十分强大却又简单易用的核心API，隐藏了复杂的索引和搜索实现过程。所以可以简单的将Lucene视为应用程序下的一个接口层，如上图所示。</p><p>网络爬虫只为搜索引擎采集到海量文档信息，内容的有效检索还需要索引技术来实现。搜索引擎的索引器负责生成索引文件，其工作上下文结构如下图所示。<br><img src="/zh-CN/lucene-arch/crawler-arch.png" title="网络爬虫"><br>其中，文本解析器主要包括中文分词、垃圾信息过滤等模块，而中文分词(Chinese Word Segmentation)是对信息处理的基础，如果没有中文分词，根本无法建立高效的索引结构。</p><p>References:<br>[1] Michael McCandless, Erik Hatcher, and Otis Gospodnetić, Lucene in Action(Second Edition)<br>[2] <a href="https://baike.baidu.com/item/Lucene" target="_blank" rel="noopener">https://baike.baidu.com/item/Lucene</a> ,2018-9-13<br>[3] <a href="https://lucene.apache.org/core/7_4_0/index.html" target="_blank" rel="noopener">https://lucene.apache.org/core/7_4_0/index.html</a> ,2018-9-13<br>[4] DJ. QING, Android-based virtual chat robot development</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇文章&lt;a href=&quot;/zh-CN/lucene-env-config.html&quot;&gt;《搜索篇（0）Lucene环境配置》&lt;/a&gt;讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。&lt;br&gt;&lt;img src=&quot;/zh-CN/lucene-arch/lucene-arch.png&quot; title=&quot;Lucene架构&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
+    
+    
+      <category term="搜索引擎" scheme="http://qingdujun.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
+    
+      <category term="架构" scheme="http://qingdujun.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>搜索篇（0）Lucene环境配置</title>

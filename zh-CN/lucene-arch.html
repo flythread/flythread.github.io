@@ -108,21 +108,22 @@
 
 
 
-  <meta name="description" content="《今天，我们一起努力，让计算机更好的懂得世界！》">
-<meta name="keywords" content="人工智能 , 搜索引擎 , 信息检索 , 推荐系统 , 知识图谱 , 深度学习 , 机器学习 , 深度强化学习 , 操作系统 , 分布式架构 , 问答系统 , 计算机视觉 , CV , 自然语言处理 , NLP">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ABOUT ME">
-<meta property="og:url" content="http://qingdujun.com/about/index.html">
+  <meta name="description" content="上一篇文章《搜索篇（0）Lucene环境配置》讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。">
+<meta name="keywords" content="搜索引擎,Lucene,架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜索篇（1）Lucene全文检索工具库架构">
+<meta property="og:url" content="http://qingdujun.com/zh-CN/lucene-arch.html">
 <meta property="og:site_name" content="MORE INTELLIGENT">
-<meta property="og:description" content="《今天，我们一起努力，让计算机更好的懂得世界！》">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-18T09:34:51.973Z">
+<meta property="og:description" content="上一篇文章《搜索篇（0）Lucene环境配置》讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/lucene-arch/lucene-arch.png">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/lucene-arch/crawler-arch.png">
+<meta property="og:updated_time" content="2018-09-20T12:18:57.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ABOUT ME">
-<meta name="twitter:description" content="《今天，我们一起努力，让计算机更好的懂得世界！》">
+<meta name="twitter:title" content="搜索篇（1）Lucene全文检索工具库架构">
+<meta name="twitter:description" content="上一篇文章《搜索篇（0）Lucene环境配置》讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/lucene-arch/lucene-arch.png">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="MORE INTELLIGENT" type="application/atom+xml" />
@@ -130,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://qingdujun.com/about/"/>
+  <link rel="canonical" href="http://qingdujun.com/zh-CN/lucene-arch.html"/>
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>ABOUT ME | MORE INTELLIGENT</title>
+  <title>搜索篇（1）Lucene全文检索工具库架构 | MORE INTELLIGENT</title>
   
 
 
@@ -180,7 +181,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -230,15 +231,15 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
         
         
@@ -246,7 +247,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -254,7 +255,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -262,7 +263,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
         
@@ -270,7 +271,7 @@
           
           <li class="menu-item menu-item-rank">
     <a href="/rank/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />Leaderboard</a>
+      <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />排行榜</a>
   </li>
         
         
@@ -278,7 +279,7 @@
           
           <li class="menu-item menu-item-sitemap">
     <a href="/sitemap.xml" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
   </li>
 
       
@@ -288,7 +289,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -309,7 +310,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -340,77 +341,199 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/lucene-arch.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DUJUN QING">
+      <meta itemprop="description" content="《今天，我们一起努力，让计算机更好的懂得世界！》">
+      <meta itemprop="image" content="https://tvax3.sinaimg.cn/crop.0.0.664.664.180/e4cde9f6ly8fhcbub5h0bj20ig0igmxq.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MORE INTELLIGENT">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">ABOUT ME</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h2 class="post-title" itemprop="name headline">搜索篇（1）Lucene全文检索工具库架构
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-20 20:06:52 / 修改时间：20:18:57" itemprop="dateCreated datePublished" datetime="2018-09-20T20:06:52+08:00">2018-09-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh-CN/lucene-arch.html" class="leancloud_visitors" data-flag-title="搜索篇（1）Lucene全文检索工具库架构">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>上一篇文章<a href="/zh-CN/lucene-env-config.html">《搜索篇（0）Lucene环境配置》</a>讲解了Lucene环境的配置，在本篇文章中将介绍一下它的架构。Lucene是一个采用纯JAVA实现的高性能、可扩展的信息检索开源工具库，在2001年成为开源组织Apache Jakarta的成员项目。<br><img src="/zh-CN/lucene-arch/lucene-arch.png" title="Lucene架构"><br><a id="more"></a><br>需要强调的是，Lucene并不具备搜索引擎的完整特性，它只关注文本的索引和搜索，并提供了一套十分强大却又简单易用的核心API，隐藏了复杂的索引和搜索实现过程。所以可以简单的将Lucene视为应用程序下的一个接口层，如上图所示。</p>
+<p>网络爬虫只为搜索引擎采集到海量文档信息，内容的有效检索还需要索引技术来实现。搜索引擎的索引器负责生成索引文件，其工作上下文结构如下图所示。<br><img src="/zh-CN/lucene-arch/crawler-arch.png" title="网络爬虫"><br>其中，文本解析器主要包括中文分词、垃圾信息过滤等模块，而中文分词(Chinese Word Segmentation)是对信息处理的基础，如果没有中文分词，根本无法建立高效的索引结构。</p>
+<p>References:<br>[1] Michael McCandless, Erik Hatcher, and Otis Gospodnetić, Lucene in Action(Second Edition)<br>[2] <a href="https://baike.baidu.com/item/Lucene" target="_blank" rel="noopener">https://baike.baidu.com/item/Lucene</a> ,2018-9-13<br>[3] <a href="https://lucene.apache.org/core/7_4_0/index.html" target="_blank" rel="noopener">https://lucene.apache.org/core/7_4_0/index.html</a> ,2018-9-13<br>[4] DJ. QING, Android-based virtual chat robot development</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/搜索引擎/" rel="tag"># 搜索引擎</a>
+          
+            <a href="/tags/Lucene/" rel="tag"># Lucene</a>
+          
+            <a href="/tags/架构/" rel="tag"># 架构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh-CN/lucene-env-config.html" rel="next" title="搜索篇（0）Lucene环境配置">
+                <i class="fa fa-chevron-left"></i> 搜索篇（0）Lucene环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -461,7 +584,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -478,7 +601,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -499,7 +622,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -1071,43 +1194,35 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1127,9 +1242,7 @@
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
