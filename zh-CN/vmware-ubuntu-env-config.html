@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
-<meta name="keywords" content="搜索引擎,Lucene">
+  <meta name="description" content="本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？">
+<meta name="keywords" content="VMware,MyEclipse,JDK,Tomcat,nodejs,npm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搜索篇（0）Lucene环境配置">
-<meta property="og:url" content="http://qingdujun.com/zh-CN/lucene-env-config.html">
+<meta property="og:title" content="搜索架构——第0篇：VMware环境配置">
+<meta property="og:url" content="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html">
 <meta property="og:site_name" content="Bytes Intelligence">
-<meta property="og:description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
+<meta property="og:description" content="本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qingdujun.com/zh-CN/lucene-env-config/lucene-jar.png">
-<meta property="og:updated_time" content="2018-09-20T03:58:00.000Z">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config/vmware.png">
+<meta property="og:updated_time" content="2018-10-07T14:44:46.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搜索篇（0）Lucene环境配置">
-<meta name="twitter:description" content="Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。">
-<meta name="twitter:image" content="http://qingdujun.com/zh-CN/lucene-env-config/lucene-jar.png">
+<meta name="twitter:title" content="搜索架构——第0篇：VMware环境配置">
+<meta name="twitter:description" content="本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config/vmware.png">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://qingdujun.com/zh-CN/lucene-env-config.html"/>
+  <link rel="canonical" href="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>搜索篇（0）Lucene环境配置 | Bytes Intelligence</title>
+  <title>搜索架构——第0篇：VMware环境配置 | Bytes Intelligence</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/lucene-env-config.html">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DUJUN QING">
@@ -377,7 +377,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">搜索篇（0）Lucene环境配置
+          <h2 class="post-title" itemprop="name headline">搜索架构——第0篇：VMware环境配置
               
             
           </h2>
@@ -402,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2018-09-20 19:49:01 / 修改时间：11:58:00" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:01+08:00">2018-09-20</time>
+              <time title="创建时间：2018-10-07 06:41:06 / 修改时间：22:44:46" itemprop="dateCreated datePublished" datetime="2018-10-07T06:41:06+08:00">2018-10-07</time>
             
 
             
@@ -424,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/System-Architecture/" itemprop="url" rel="index"><span itemprop="name">System Architecture</span></a></span>
 
                 
                 
@@ -438,7 +438,7 @@
 
           
           
-             <span id="/zh-CN/lucene-env-config.html" class="leancloud_visitors" data-flag-title="搜索篇（0）Lucene环境配置">
+             <span id="/zh-CN/vmware-ubuntu-env-config.html" class="leancloud_visitors" data-flag-title="搜索架构——第0篇：VMware环境配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -469,21 +469,71 @@
       
 
       
-        <p>Lucene截止目前，最新版本为v7.4.0。它是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。<br><img src="/zh-CN/lucene-env-config/lucene-jar.png"><br><a id="more"></a><br>本系列文章重点对Lucene全文检索工具库进行了分析，其中索引部分包括中文分词及其常见的分词器介绍、倒排索引的构建、索引结构的分析，检索部分涵盖了基本查询方式介绍、VSM评分机制、自定义排序方式以及与SQL查询异同比较；最后简单的介绍了Luke工具的使用。</p>
-<h1 id="配置Lucene开发环境"><a href="#配置Lucene开发环境" class="headerlink" title="配置Lucene开发环境"></a>配置Lucene开发环境</h1><ul>
-<li>安装Java开发环境。（JDK 8 up）</li>
-<li><p>下载Lucene：<a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p>
-</li>
-<li><p>在Eclipse（或MyEclipse[推荐]）中，创建项目名HelloLucene（推荐Web Project），引入Lucene JAR包。</p>
-<blockquote>
-<p>注：Add External JARs…(右击项目-&gt;Build Path)</p>
-</blockquote>
-</li>
+        <p>本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？</p>
+<img src="/zh-CN/vmware-ubuntu-env-config/vmware.png">
+<a id="more"></a>
+<h3 id="CPU个数、几核以及几线程？"><a href="#CPU个数、几核以及几线程？" class="headerlink" title="CPU个数、几核以及几线程？"></a>CPU个数、几核以及几线程？</h3><p>本文主机为Windows环境，在Windows中查看系统CPU个数，只需在cmd命令中输入<code>systeminfo</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd-&gt;systeminfo</span><br></pre></td></tr></table></figure>
+<p>查看CPU核心数、线程数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd-&gt;wmic-&gt;cpu get</span><br></pre></td></tr></table></figure>
+<p>在cmd命令中输入<code>wmic</code>，然后在出现的新窗口中输入<code>cpu get</code>。</p>
+<ul>
+<li>NumberOfCores：表示CPU核心数</li>
+<li>NumberOfLogicalProcessors：表示CPU线程数</li>
 </ul>
-<h1 id="附录（配置git）"><a href="#附录（配置git）" class="headerlink" title="附录（配置git）"></a>附录（配置git）</h1><p>作为一名程序员亦或是学生，从github上抄代码的能力不可或缺。以下为git配置命令，请将name、email设置成自己的~<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;qingdujun&quot;</span><br><span class="line">$ git config --global user.email &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
-<p>运行ssh-keygen命令后，直接一路敲击回车键即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;123456@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
-<p>Generating public/private rsa key pair.<br>Enter file in which to save the key (/home/qingdujun/.ssh/id_rsa):<br>Created directory ‘/home/qingdujun/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/qingdujun/.ssh/id_rsa.<br>Your public key has been saved in /home/qingdujun/.ssh/id_rsa.pub.<br>根据具体的提示，如我的是/home/qingdujun/.ssh/id_rsa.pub.将该文件内容。拷贝至，<br>github.com&gt;settings&gt;SSH and GPGkeys−&gt;New SSH key</p>
-<p>References:<br>[1] <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br>[2] <a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE" target="_blank" rel="noopener">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE</a><br>[3] <a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/06/git_remote.html</a><br>[4] <a href="https://www.genuitec.com/products/myeclipse/download/" target="_blank" rel="noopener">https://www.genuitec.com/products/myeclipse/download/</a><br>[5] <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>[6] <a href="http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.lua/lucene/java/7.4.0</a></p>
+<h3 id="多版本JDK安装"><a href="#多版本JDK安装" class="headerlink" title="多版本JDK安装"></a>多版本JDK安装</h3><p>tar 命令：  tar -zxvf file_name<br>递归创建jvm目录，将解压后的JDK包全部拷贝进该路径下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p ~/Applications/jvm</span><br></pre></td></tr></table></figure>
+<p>同样的方法安装JDK8，JDK11。注意：用此方法，不需要配置JAVA_HOME。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-alternatives --install /usr/bin/java java ~/Applications/jvm/jdk-10.0.2/bin/java 310</span><br><span class="line">$ sudo update-alternatives --install /usr/bin/javac javac ~/Applications/jvm/jdk-10.0.2/bin/javac 310</span><br><span class="line">$ sudo update-alternatives --install /usr/bin/jar jar ~/Applications/jvm/jdk-10.0.2/bin/jar 310</span><br></pre></td></tr></table></figure>
+<p>自动切换版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-alternatives --config java</span><br></pre></td></tr></table></figure>
+<p>查看当前JDK版本：（这里注意，version前是1个横杠）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure>
+<h3 id="关于MyEclipse启动器创建"><a href="#关于MyEclipse启动器创建" class="headerlink" title="关于MyEclipse启动器创建"></a>关于MyEclipse启动器创建</h3><p>在启动器中可以右击，Add to Favorites，这样就可以在Dock中显示了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /usr/share/applications/myeclipseci.desktop</span><br></pre></td></tr></table></figure>
+<p>[Desktop Entry]<br>Encoding=UTF-8<br>Name=MyEclipse CI<br>Comment=MyEclipse IDE<br>Exec=~/Applications/myeclipseci/myeclipse<br>Icon=~/Applications/myeclipseci/icon.xpm<br>Terminal=false<br>StartupNotify=false<br>Type=Application<br>Categories=Application;Development;</p>
+<p>建议：最好安装在/home目录下，不然各种权限问题（不仅会造成激活失败，还可能使得软件无法启动）。本文就在Home目录下创建了Applications目录专门用来安装软件。</p>
+<h3 id="对MyEclispe的一些优化"><a href="#对MyEclispe的一些优化" class="headerlink" title="对MyEclispe的一些优化"></a>对MyEclispe的一些优化</h3><ol>
+<li><p>关闭updating indexes</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;Maven-&gt;Download repository index updates on startup</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置utf-8编码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;General-&gt;Workspace-&gt;[UTF-8, Unix]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置JDK</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;Java-&gt;Installed JREs-&gt;Add..</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置tomcat</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows-&gt;Preferences-&gt;Servers-&gt;Runtime Environments-&gt;tomcat[8,8.5,9]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示Servers</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows-&gt;Show View-&gt;Other…-&gt;Java EE-&gt;Servers</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建Server</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">右击底部Servers面板-&gt;New-&gt;Server</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>VM Tools解压提示空间不足，先查看内存，如果确实不足，请拷贝至其他目录下进行解压。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ df -h</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>JDK10以上貌似不支持-JAR命令，请切换回JDK8。</p>
+<hr>
+<p>安装nodejs并更新<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install nodejs</span><br><span class="line">$ sudo apt install npm</span><br><span class="line">$ npm install -g n</span><br><span class="line">$ n latest</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>安装hexo<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>ubuntu启动时报错。 piix4_smbus: Host SMBus controller not enabled!<br>解决方案：打开blacklist.conf在文件尾部添加一句<code>blacklist i2c_piix4</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure></p>
+<p>重新生成引导<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-initramfs -u -k all</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>由于需要使用独立IP（直接链接物理网络，桥接模式）<br>这时候，需要配置DHCP。首先查看网卡名称：ens33<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig</span><br></pre></td></tr></table></figure></p>
+<p>ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>        inet 192.168.47.133  netmask 255.255.255.0  broadcast 192.168.47.255<br>        inet6 fe80::20c:29ff:fedf:572d  prefixlen 64  scopeid 0x20<link><br>        ether 00:0c:29:df:57:2d  txqueuelen 1000  (Ethernet)<br>        RX packets 760  bytes 413857 (413.8 KB)<br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        TX packets 593  bytes 132429 (132.4 KB)<br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</p>
+<p>lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536<br>        inet 127.0.0.1  netmask 255.0.0.0<br>        inet6 ::1  prefixlen 128  scopeid 0x10<host><br>        loop  txqueuelen 1000  (Local Loopback)<br>        RX packets 2043  bytes 131698 (131.6 KB)<br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        TX packets 2043  bytes 131698 (131.6 KB)<br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</host></p>
+<p>接着，配置DHCP，并重启网络。(在interfaces中添加以下内容)</p>
+<p>auto ens33<br>iface ens33 inet dhcp</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
+<hr>
+<p>批量将文件夹设置为默认权限755，将文件设置为默认权限644。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find . -<span class="built_in">type</span> d -<span class="built_in">exec</span> chmod 755 &#123;&#125; \;</span><br><span class="line">$ find . -<span class="built_in">type</span> f -<span class="built_in">exec</span> chmod 644 &#123;&#125; \;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>References:<br>1 <a href="https://blog.csdn.net/ksws0292756/article/details/79119961" target="_blank" rel="noopener">Windows下查看电脑的CPU个数，核心数，线程数</a><br>2 <a href="https://www.jianshu.com/p/78bf2c518c0e" target="_blank" rel="noopener">关于VMware的桥接模式</a><br>3 <a href="https://blog.csdn.net/qq_36069590/article/details/79695292" target="_blank" rel="noopener">VMware虚拟机Ubuntu16.04桥接模式无法上网</a></p>
 
       
     </div>
@@ -504,9 +554,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/搜索引擎/" rel="tag"># 搜索引擎</a>
+            <a href="/tags/VMware/" rel="tag"># VMware</a>
           
-            <a href="/tags/Lucene/" rel="tag"># Lucene</a>
+            <a href="/tags/MyEclipse/" rel="tag"># MyEclipse</a>
+          
+            <a href="/tags/JDK/" rel="tag"># JDK</a>
+          
+            <a href="/tags/Tomcat/" rel="tag"># Tomcat</a>
+          
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
           
         </div>
       
@@ -519,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh-CN/str-hash-func-bkdrhash.html" rel="next" title="字符串哈希算法——BKDRHash">
-                <i class="fa fa-chevron-left"></i> 字符串哈希算法——BKDRHash
+              <a href="/zh-CN/lucene-arch.html" rel="next" title="搜索篇（1）Lucene全文检索工具库架构">
+                <i class="fa fa-chevron-left"></i> 搜索篇（1）Lucene全文检索工具库架构
               </a>
             
           </div>
@@ -528,10 +586,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/zh-CN/lucene-arch.html" rel="prev" title="搜索篇（1）Lucene全文检索工具库架构">
-                搜索篇（1）Lucene全文检索工具库架构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -741,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Lucene开发环境"><span class="nav-text">配置Lucene开发环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录（配置git）"><span class="nav-text">附录（配置git）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU个数、几核以及几线程？"><span class="nav-text">CPU个数、几核以及几线程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多版本JDK安装"><span class="nav-text">多版本JDK安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于MyEclipse启动器创建"><span class="nav-text">关于MyEclipse启动器创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对MyEclispe的一些优化"><span class="nav-text">对MyEclispe的一些优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-text">附录</span></a></li></ol></div>
             
 
           </div>

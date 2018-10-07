@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-09-20T04:18:56.000Z</updated>
+  <updated>2018-10-07T14:44:46.369Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索架构——第0篇：VMware环境配置</title>
+    <link href="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html"/>
+    <id>http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html</id>
+    <published>2018-10-06T22:41:06.000Z</published>
+    <updated>2018-10-07T14:44:46.369Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？</p><img src="/zh-CN/vmware-ubuntu-env-config/vmware.png"><a id="more"></a><h3 id="CPU个数、几核以及几线程？"><a href="#CPU个数、几核以及几线程？" class="headerlink" title="CPU个数、几核以及几线程？"></a>CPU个数、几核以及几线程？</h3><p>本文主机为Windows环境，在Windows中查看系统CPU个数，只需在cmd命令中输入<code>systeminfo</code>。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd-&gt;systeminfo</span><br></pre></td></tr></table></figure><p>查看CPU核心数、线程数：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd-&gt;wmic-&gt;cpu get</span><br></pre></td></tr></table></figure><p>在cmd命令中输入<code>wmic</code>，然后在出现的新窗口中输入<code>cpu get</code>。</p><ul><li>NumberOfCores：表示CPU核心数</li><li>NumberOfLogicalProcessors：表示CPU线程数</li></ul><h3 id="多版本JDK安装"><a href="#多版本JDK安装" class="headerlink" title="多版本JDK安装"></a>多版本JDK安装</h3><p>tar 命令：  tar -zxvf file_name<br>递归创建jvm目录，将解压后的JDK包全部拷贝进该路径下。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p ~/Applications/jvm</span><br></pre></td></tr></table></figure><p>同样的方法安装JDK8，JDK11。注意：用此方法，不需要配置JAVA_HOME。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-alternatives --install /usr/bin/java java ~/Applications/jvm/jdk-10.0.2/bin/java 310</span><br><span class="line">$ sudo update-alternatives --install /usr/bin/javac javac ~/Applications/jvm/jdk-10.0.2/bin/javac 310</span><br><span class="line">$ sudo update-alternatives --install /usr/bin/jar jar ~/Applications/jvm/jdk-10.0.2/bin/jar 310</span><br></pre></td></tr></table></figure><p>自动切换版本：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-alternatives --config java</span><br></pre></td></tr></table></figure><p>查看当前JDK版本：（这里注意，version前是1个横杠）</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure><h3 id="关于MyEclipse启动器创建"><a href="#关于MyEclipse启动器创建" class="headerlink" title="关于MyEclipse启动器创建"></a>关于MyEclipse启动器创建</h3><p>在启动器中可以右击，Add to Favorites，这样就可以在Dock中显示了。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /usr/share/applications/myeclipseci.desktop</span><br></pre></td></tr></table></figure><p>[Desktop Entry]<br>Encoding=UTF-8<br>Name=MyEclipse CI<br>Comment=MyEclipse IDE<br>Exec=~/Applications/myeclipseci/myeclipse<br>Icon=~/Applications/myeclipseci/icon.xpm<br>Terminal=false<br>StartupNotify=false<br>Type=Application<br>Categories=Application;Development;</p><p>建议：最好安装在/home目录下，不然各种权限问题（不仅会造成激活失败，还可能使得软件无法启动）。本文就在Home目录下创建了Applications目录专门用来安装软件。</p><h3 id="对MyEclispe的一些优化"><a href="#对MyEclispe的一些优化" class="headerlink" title="对MyEclispe的一些优化"></a>对MyEclispe的一些优化</h3><ol><li><p>关闭updating indexes</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;Maven-&gt;Download repository index updates on startup</span><br></pre></td></tr></table></figure></li><li><p>配置utf-8编码</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;General-&gt;Workspace-&gt;[UTF-8, Unix]</span><br></pre></td></tr></table></figure></li><li><p>配置JDK</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Window-&gt;Preferences-&gt;Java-&gt;Installed JREs-&gt;Add..</span><br></pre></td></tr></table></figure></li><li><p>配置tomcat</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows-&gt;Preferences-&gt;Servers-&gt;Runtime Environments-&gt;tomcat[8,8.5,9]</span><br></pre></td></tr></table></figure></li><li><p>显示Servers</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Windows-&gt;Show View-&gt;Other…-&gt;Java EE-&gt;Servers</span><br></pre></td></tr></table></figure></li><li><p>新建Server</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">右击底部Servers面板-&gt;New-&gt;Server</span><br></pre></td></tr></table></figure></li></ol><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>VM Tools解压提示空间不足，先查看内存，如果确实不足，请拷贝至其他目录下进行解压。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ df -h</span><br></pre></td></tr></table></figure></p><hr><p>JDK10以上貌似不支持-JAR命令，请切换回JDK8。</p><hr><p>安装nodejs并更新<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install nodejs</span><br><span class="line">$ sudo apt install npm</span><br><span class="line">$ npm install -g n</span><br><span class="line">$ n latest</span><br></pre></td></tr></table></figure></p><hr><p>安装hexo<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p><hr><p>ubuntu启动时报错。 piix4_smbus: Host SMBus controller not enabled!<br>解决方案：打开blacklist.conf在文件尾部添加一句<code>blacklist i2c_piix4</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure></p><p>重新生成引导<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo update-initramfs -u -k all</span><br></pre></td></tr></table></figure></p><hr><p>由于需要使用独立IP（直接链接物理网络，桥接模式）<br>这时候，需要配置DHCP。首先查看网卡名称：ens33<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ifconfig</span><br></pre></td></tr></table></figure></p><p>ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>        inet 192.168.47.133  netmask 255.255.255.0  broadcast 192.168.47.255<br>        inet6 fe80::20c:29ff:fedf:572d  prefixlen 64  scopeid 0x20<link><br>        ether 00:0c:29:df:57:2d  txqueuelen 1000  (Ethernet)<br>        RX packets 760  bytes 413857 (413.8 KB)<br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        TX packets 593  bytes 132429 (132.4 KB)<br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</p><p>lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536<br>        inet 127.0.0.1  netmask 255.0.0.0<br>        inet6 ::1  prefixlen 128  scopeid 0x10<host><br>        loop  txqueuelen 1000  (Local Loopback)<br>        RX packets 2043  bytes 131698 (131.6 KB)<br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        TX packets 2043  bytes 131698 (131.6 KB)<br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</host></p><p>接着，配置DHCP，并重启网络。(在interfaces中添加以下内容)</p><p>auto ens33<br>iface ens33 inet dhcp</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/network/interfaces</span><br><span class="line">$ sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure><hr><p>批量将文件夹设置为默认权限755，将文件设置为默认权限644。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find . -<span class="built_in">type</span> d -<span class="built_in">exec</span> chmod 755 &#123;&#125; \;</span><br><span class="line">$ find . -<span class="built_in">type</span> f -<span class="built_in">exec</span> chmod 644 &#123;&#125; \;</span><br></pre></td></tr></table></figure></p><hr><p>References:<br>1 <a href="https://blog.csdn.net/ksws0292756/article/details/79119961" target="_blank" rel="noopener">Windows下查看电脑的CPU个数，核心数，线程数</a><br>2 <a href="https://www.jianshu.com/p/78bf2c518c0e" target="_blank" rel="noopener">关于VMware的桥接模式</a><br>3 <a href="https://blog.csdn.net/qq_36069590/article/details/79695292" target="_blank" rel="noopener">VMware虚拟机Ubuntu16.04桥接模式无法上网</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍在VMware中安装MyEcplise CI 2018，安装多版本JDK以及Tomcat。在虚拟机中安装Ubuntu之前，首先需要明确电脑有几个CPU，是几核几线程？&lt;/p&gt;
+&lt;img src=&quot;/zh-CN/vmware-ubuntu-env-config/vmware.png&quot;&gt;
+    
+    </summary>
+    
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+    
+    
+      <category term="VMware" scheme="http://qingdujun.com/tags/VMware/"/>
+    
+      <category term="MyEclipse" scheme="http://qingdujun.com/tags/MyEclipse/"/>
+    
+      <category term="JDK" scheme="http://qingdujun.com/tags/JDK/"/>
+    
+      <category term="Tomcat" scheme="http://qingdujun.com/tags/Tomcat/"/>
+    
+      <category term="nodejs" scheme="http://qingdujun.com/tags/nodejs/"/>
+    
+      <category term="npm" scheme="http://qingdujun.com/tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>搜索篇（1）Lucene全文检索工具库架构</title>
