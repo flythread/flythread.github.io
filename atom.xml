@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-10-09T06:25:09.027Z</updated>
+  <updated>2018-10-09T08:23:00.754Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于Ubuntu修改用户名造成无法登录的补救措施</title>
+    <link href="http://qingdujun.com/zh-CN/ubuntu-modify-username.html"/>
+    <id>http://qingdujun.com/zh-CN/ubuntu-modify-username.html</id>
+    <published>2018-10-08T16:50:15.000Z</published>
+    <updated>2018-10-09T08:23:00.754Z</updated>
+    
+    <content type="html"><![CDATA[<p>在进行今天的这波操作修改用户名之前，参考的是<a href="https://www.cnblogs.com/zeusmyth/p/6231350.html" target="_blank" rel="noopener">《Ubuntu下更改用户名和主机名》</a>以及<a href="https://blog.csdn.net/zhaokx3/article/details/64127454" target="_blank" rel="noopener">《Ubuntu 修改用户名》</a>这两篇文章。不慎的是，在修改文件之时，没有将<code>/etc/passwd</code>中的所有旧用户名替换为新的。</p><img src="/zh-CN/ubuntu-modify-username/passwd.png"><p><strong>修改之前：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bytesint:x:1000:1000:bytesint:/home/bytesint:/bin/bash</span><br></pre></td></tr></table></figure></p><p><strong>失误之处：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">byteparallel:x:1000:1000:bytesint:/home/bytesint:/bin/bash</span><br></pre></td></tr></table></figure></p><a id="more"></a><p>看到上面的失误之处就已经明白了。我本来是想将用户名修改为byteparallel，结果只修改了最前面的地方。后面还有两处没修改。</p><p>正是因为这个原因，造成重启之后，系统无法正常登录了。然后，使用<code>root</code>账户在图形界面竟然也无法登录。</p><h3 id="补救措施："><a href="#补救措施：" class="headerlink" title="补救措施："></a>补救措施：</h3><p>万幸的是，我有提前设置<code>root</code>密码。（注意root密码如果没有手动设置的话，每次都是随机生成的）。</p><ul><li><p><strong>Step1:</strong>  按住<code>Ctrl+Alt+F2</code>切换到非图形终端。一般来说，F1是图形终端，F2~F7是非图形终端。</p></li><li><p><strong>Step2:</strong> 登录root账户。</p></li><li><p><strong>Step3:</strong> 完成未尽事宜。</p></li><li><p><strong>Step4:</strong> reboot，一切OK。</p></li></ul><p><strong>小结</strong> 类似于修改用户名，这种需要更改大量文件内容的操作。最好不要手动去一个个修改，而应该用替换命令。对于vim，其实还有这样的操作：</p><p>在全文中将aaa替换为bbb<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">:%s/aaa/bbb/g</span><br></pre></td></tr></table></figure></p><p>在当前行中将ccc替换为ddd<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">:s/ccc/ddd/g</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在进行今天的这波操作修改用户名之前，参考的是&lt;a href=&quot;https://www.cnblogs.com/zeusmyth/p/6231350.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《Ubuntu下更改用户名和主机名》&lt;/a&gt;以及&lt;a href=&quot;https://blog.csdn.net/zhaokx3/article/details/64127454&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《Ubuntu 修改用户名》&lt;/a&gt;这两篇文章。不慎的是，在修改文件之时，没有将&lt;code&gt;/etc/passwd&lt;/code&gt;中的所有旧用户名替换为新的。&lt;/p&gt;
+&lt;img src=&quot;/zh-CN/ubuntu-modify-username/passwd.png&quot;&gt;
+&lt;p&gt;&lt;strong&gt;修改之前：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bytesint:x:1000:1000:bytesint:/home/bytesint:/bin/bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;失误之处：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;byteparallel:x:1000:1000:bytesint:/home/bytesint:/bin/bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
+    
+    
+      <category term="Linux" scheme="http://qingdujun.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式架构——第2篇：ZooKeeper API实战</title>
