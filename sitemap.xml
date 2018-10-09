@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qingdujun.com/zh-CN/zookeeper-api-in-action.html</loc>
+    
+    <lastmod>2018-10-09T03:25:03.637Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qingdujun.com/zh-CN/zookeeper-install-conf.html</loc>
     
     <lastmod>2018-10-09T01:33:16.484Z</lastmod>
