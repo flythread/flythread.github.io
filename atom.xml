@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingdujun.com/"/>
-  <updated>2018-10-09T08:23:00.000Z</updated>
+  <updated>2018-10-09T12:15:44.898Z</updated>
   <id>http://qingdujun.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssh配置以及远程文件传输</title>
+    <link href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html"/>
+    <id>http://qingdujun.com/zh-CN/ssh-config-remote-file.html</id>
+    <published>2018-10-09T11:50:23.000Z</published>
+    <updated>2018-10-09T12:15:44.898Z</updated>
+    
+    <content type="html"><![CDATA[<p>Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。<br><img src="/zh-CN/ssh-config-remote-file/ssh.png"><br> 通过以下命令安装ssh服务端（默认自动启动）。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p><a id="more"></a><h3 id="ssh登录远程服务器"><a href="#ssh登录远程服务器" class="headerlink" title="ssh登录远程服务器"></a>ssh登录远程服务器</h3><p>举个栗子<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh byteparallel@192.168.1.102</span><br></pre></td></tr></table></figure></p><p>注意：如果出现这样的警告<code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code>。说明你以前连接过远程服务器，但是远程服务器又重装了系统，这时候你本地的密钥已经失效了。你需要删除该文件。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rm ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure></p><h3 id="远程文件传输"><a href="#远程文件传输" class="headerlink" title="远程文件传输"></a>远程文件传输</h3><p>在linux下一般用scp这个命令来通过ssh传输文件。</p><ul><li><p>从服务器上下载文件</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp username@servername:/path/filename /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure></li><li><p>上传本地文件到服务器</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp /path/filename username@servername:/path</span><br></pre></td></tr></table></figure></li><li><p>从服务器下载整个目录</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure></li></ul><ul><li>上传目录到服务器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp  -r local_dir username@servername:remote_dir</span><br></pre></td></tr></table></figure></li></ul><p><strong>注意：</strong> 目标服务器要开启写入权限。</p><p>References:<br>1 <a href="http://www.cnblogs.com/jiangyao/archive/2011/01/26/1945570.html" target="_blank" rel="noopener">利用ssh传输文件</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。&lt;br&gt;&lt;img src=&quot;/zh-CN/ssh-config-remote-file/ssh.png&quot;&gt;&lt;br&gt; 通过以下命令安装ssh服务端（默认自动启动）。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get install openssh-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
+    
+    
+      <category term="ssh" scheme="http://qingdujun.com/tags/ssh/"/>
+    
+  </entry>
   
   <entry>
     <title>关于Ubuntu修改用户名造成无法登录的补救措施</title>
