@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。 通过以下命令安装ssh服务端（默认自动启动）。$ sudo apt-get install openssh-server">
-<meta name="keywords" content="ssh">
+  <meta name="description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
+<meta name="keywords" content="ZooKeeper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh配置以及远程文件传输">
-<meta property="og:url" content="http://qingdujun.com/zh-CN/ssh-config-remote-file.html">
+<meta property="og:title" content="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
+<meta property="og:url" content="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html">
 <meta property="og:site_name" content="Byte Parallel">
-<meta property="og:description" content="Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。 通过以下命令安装ssh服务端（默认自动启动）。$ sudo apt-get install openssh-server">
+<meta property="og:description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qingdujun.com/zh-CN/ssh-config-remote-file/ssh.png">
-<meta property="og:updated_time" content="2018-10-09T12:15:44.898Z">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
+<meta property="og:updated_time" content="2018-10-10T03:39:04.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh配置以及远程文件传输">
-<meta name="twitter:description" content="Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。 通过以下命令安装ssh服务端（默认自动启动）。$ sudo apt-get install openssh-server">
-<meta name="twitter:image" content="http://qingdujun.com/zh-CN/ssh-config-remote-file/ssh.png">
+<meta name="twitter:title" content="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
+<meta name="twitter:description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html"/>
+  <link rel="canonical" href="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html"/>
 
 
 
@@ -140,7 +140,7 @@
   };
 </script>
 
-  <title>ssh配置以及远程文件传输 | Byte Parallel</title>
+  <title>分布式架构——第4篇：构建ZooKeeper伪分布式集群 | Byte Parallel</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DUJUN QING">
@@ -377,7 +377,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ssh配置以及远程文件传输
+          <h2 class="post-title" itemprop="name headline">分布式架构——第4篇：构建ZooKeeper伪分布式集群
               
             
           </h2>
@@ -402,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2018-10-09 19:50:23 / 修改时间：20:15:44" itemprop="dateCreated datePublished" datetime="2018-10-09T19:50:23+08:00">2018-10-09</time>
+              <time title="创建时间：2018-10-10 10:57:16 / 修改时间：11:39:04" itemprop="dateCreated datePublished" datetime="2018-10-10T10:57:16+08:00">2018-10-10</time>
             
 
             
@@ -424,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Coding-Interviews/" itemprop="url" rel="index"><span itemprop="name">Coding Interviews</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/System-Architecture/" itemprop="url" rel="index"><span itemprop="name">System Architecture</span></a></span>
 
                 
                 
@@ -438,7 +438,7 @@
 
           
           
-             <span id="/zh-CN/ssh-config-remote-file.html" class="leancloud_visitors" data-flag-title="ssh配置以及远程文件传输">
+             <span id="/zh-CN/zookeeper-pseudo-distributed.html" class="leancloud_visitors" data-flag-title="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -469,28 +469,33 @@
       
 
       
-        <p>Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。Ubuntu缺省已经安装了ssh客户端。但是并没有安装服务端。<br><img src="/zh-CN/ssh-config-remote-file/ssh.png"><br> 通过以下命令安装ssh服务端（默认自动启动）。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></p>
+        <p>根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用<code>虚拟机技术</code>、<code>容器技术</code>或者是本文将要介绍的<code>多端口伪分布式技术</code>。</p>
+<img src="/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
 <a id="more"></a>
-<h3 id="ssh登录远程服务器"><a href="#ssh登录远程服务器" class="headerlink" title="ssh登录远程服务器"></a>ssh登录远程服务器</h3><p>举个栗子<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh byteparallel@192.168.1.102</span><br></pre></td></tr></table></figure></p>
-<p>注意：如果出现这样的警告<code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code>。说明你以前连接过远程服务器，但是远程服务器又重装了系统，这时候你本地的密钥已经失效了。你需要删除该文件。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ rm ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure></p>
-<h3 id="远程文件传输"><a href="#远程文件传输" class="headerlink" title="远程文件传输"></a>远程文件传输</h3><p>在linux下一般用scp这个命令来通过ssh传输文件。</p>
-<ul>
-<li><p>从服务器上下载文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp username@servername:/path/filename /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure>
+<h3 id="配置zoo-cfg文件"><a href="#配置zoo-cfg文件" class="headerlink" title="配置zoo.cfg文件"></a>配置zoo.cfg文件</h3><p>由于我只有一台服务器，只有一个IP地址，以下采用<strong>多端口运行多个ZooKeeper</strong>构建伪分布式集群。</p>
+<p>将zoo.cfg文件拷贝3份，分别命名为<code>zoo1.cfg</code>、<code>zoo2.cfg</code>、<code>zoo3.cfg</code>。其中，zoo1.cf内容如下。这里主要注意几处：dataDir、clientPort每个配置必须不同。server每个配置必须相同。</p>
+<p><strong>注意：</strong> server的格式为<code>server.ID=IP:PORT1:PORT2</code>，ID是当前服务器的编号、IP这里由于是伪分布式全部是同一台，PORT1是用于leader与follower通信使用的，PORT2是供选举使用。</p>
+<ol>
+<li><p>zoo1.cfg</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line"></span><br><span class="line">dataDir=/home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/data1</span><br><span class="line"></span><br><span class="line">clientPort=2181</span><br><span class="line"></span><br><span class="line">server.1=127.0.0.1:2887:3887</span><br><span class="line">server.2=127.0.0.1:2888:3888</span><br><span class="line">server.3=127.0.0.1:2889:3889</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>上传本地文件到服务器</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp /path/filename username@servername:/path</span><br></pre></td></tr></table></figure>
+<li><p>zoo2.cfg</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line"></span><br><span class="line">dataDir=/home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/data2</span><br><span class="line"></span><br><span class="line">clientPort=2182</span><br><span class="line"></span><br><span class="line">server.1=127.0.0.1:2887:3887</span><br><span class="line">server.2=127.0.0.1:2888:3888</span><br><span class="line">server.3=127.0.0.1:2889:3889</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>从服务器下载整个目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp -r username@servername:/var/www/remote_dir/（远程目录） /var/www/local_dir（本地目录）</span><br></pre></td></tr></table></figure>
+<li><p>zoo3.cfg</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line"></span><br><span class="line">dataDir=/home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/data3</span><br><span class="line"></span><br><span class="line">clientPort=2183</span><br><span class="line"></span><br><span class="line">server.1=127.0.0.1:2887:3887</span><br><span class="line">server.2=127.0.0.1:2888:3888</span><br><span class="line">server.3=127.0.0.1:2889:3889</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
-<li>上传目录到服务器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp  -r local_dir username@servername:remote_dir</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>注意：</strong> 目标服务器要开启写入权限。</p>
-<p>References:<br>1 <a href="http://www.cnblogs.com/jiangyao/archive/2011/01/26/1945570.html" target="_blank" rel="noopener">利用ssh传输文件</a></p>
+</ol>
+<p>此时，应该是这个状态：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/conf$ ls</span><br><span class="line">configuration.xsl  log4j.properties  zoo1.cfg  zoo2.cfg  zoo3.cfg  zoo_sample.cfg</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建data文件夹"><a href="#创建data文件夹" class="headerlink" title="创建data文件夹"></a>创建data文件夹</h3><p>data文件夹的具体路径，以及名字，与上文中的zoo.cfg配置文件保持一致即可。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12$ ls</span><br><span class="line">bin        data1       docs             LICENSE.txt  README_packaging.txt  zookeeper-3.4.12.jar.asc</span><br><span class="line">build.xml  data2       ivysettings.xml  <span class="built_in">log</span>          recipes               zookeeper-3.4.12.jar.md5</span><br><span class="line">conf       data3       ivy.xml          NOTICE.txt   src                   zookeeper-3.4.12.jar.sha1</span><br><span class="line">contrib    dist-maven  lib              README.md    zookeeper-3.4.12.jar</span><br></pre></td></tr></table></figure></p>
+<p>这里直接在主目录下创建了3个data文件夹，分别命名为<code>data1</code>、<code>data2</code>以及<code>data3</code>。<br>接着，分别在这3个data文件夹，并创建<code>myid</code>文件并输入当前服务器的ID（注意与zoo.cfg保持一致）。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ echo 1 &gt;&gt; data1/myid</span><br><span class="line">$ echo 2 &gt;&gt; data2/myid</span><br><span class="line">$ echo 3 &gt;&gt; data3/myid</span><br></pre></td></tr></table></figure></p>
+<h3 id="启动ZooKeeper集群"><a href="#启动ZooKeeper集群" class="headerlink" title="启动ZooKeeper集群"></a>启动ZooKeeper集群</h3><p>集群需要全部服务器启动之后，使用<code>./zkServer.sh status</code>查询ZooKeeper状态才会正常。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ ./zkServer.sh start zoo1.cfg</span><br><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ ./zkServer.sh start zoo2.cfg</span><br><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ ./zkServer.sh start zoo3.cfg</span><br></pre></td></tr></table></figure></p>
+<p>可以分别查询每个服务器的状态，<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ ./zkServer.sh status zoo1.cfg</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/bin/../conf/zoo1.cfg</span><br><span class="line">Mode: follower</span><br></pre></td></tr></table></figure></p>
+<h3 id="Error-contacting-service-It-is-probably-not-running"><a href="#Error-contacting-service-It-is-probably-not-running" class="headerlink" title="Error contacting service. It is probably not running"></a>Error contacting service. It is probably not running</h3><p>构建ZooKeeper伪分布式集群时，遇到了该异常，具体可以查阅参考文献。我是由于端口占用造成的该故障。</p>
+<h4 id="异常状态"><a href="#异常状态" class="headerlink" title="异常状态"></a>异常状态</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./zkServer.sh status zoo1.cfg</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/bin/../conf/zoo.cfg</span><br><span class="line">Error contacting service. It is probably not running</span><br></pre></td></tr></table></figure>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>首先，查看zoo1.cfg配置文件中的<code>clientPort</code>是否被占用。果然被占用了。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -lnp | grep 2181</span><br><span class="line">(Not all processes could be identified, non-owned process info</span><br><span class="line"> will not be shown, you would have to be root to see it all.)</span><br><span class="line">tcp6       0      0 :::2181                 :::*                    LISTEN      2615/java</span><br></pre></td></tr></table></figure></p>
+<h4 id="kill该进程"><a href="#kill该进程" class="headerlink" title="kill该进程"></a>kill该进程</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ <span class="built_in">kill</span> 2615</span><br></pre></td></tr></table></figure>
+<p>References:<br>1 <a href="https://www.cnblogs.com/boright88/p/3170171.html" target="_blank" rel="noopener">ubuntu 查看端口被占用并处理</a><br>2 <a href="https://blog.csdn.net/weiyongle1996/article/details/73733228" target="_blank" rel="noopener">配置zookeeper异常 Error contacting service. It is probably not running.以及java.net.ConnectException: 拒绝连接</a><br>3 <a href="https://blog.csdn.net/luoww1/article/details/76078772" target="_blank" rel="noopener">zookeeper 集群中当前zookeeper 状态查看</a><br>4 <a href="https://blog.csdn.net/hi_kevin/article/details/7089358" target="_blank" rel="noopener">ZooKeeper的安装</a></p>
 
       
     </div>
@@ -511,7 +516,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ssh/" rel="tag"># ssh</a>
+            <a href="/tags/ZooKeeper/" rel="tag"># ZooKeeper</a>
           
         </div>
       
@@ -524,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh-CN/ubuntu-modify-username.html" rel="next" title="关于Ubuntu修改用户名造成无法登录的补救措施">
-                <i class="fa fa-chevron-left"></i> 关于Ubuntu修改用户名造成无法登录的补救措施
+              <a href="/zh-CN/zookeeper-zkclient.html" rel="next" title="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
+                <i class="fa fa-chevron-left"></i> 分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient
               </a>
             
           </div>
@@ -533,10 +538,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/zh-CN/zookeeper-zkclient.html" rel="prev" title="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
-                分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -734,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh登录远程服务器"><span class="nav-text">ssh登录远程服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程文件传输"><span class="nav-text">远程文件传输</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置zoo-cfg文件"><span class="nav-text">配置zoo.cfg文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建data文件夹"><span class="nav-text">创建data文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动ZooKeeper集群"><span class="nav-text">启动ZooKeeper集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-contacting-service-It-is-probably-not-running"><span class="nav-text">Error contacting service. It is probably not running</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#异常状态"><span class="nav-text">异常状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kill该进程"><span class="nav-text">kill该进程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1305,6 +1306,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

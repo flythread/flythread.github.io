@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html</loc>
+    <lastmod>2018-10-10T03:39:04.164Z</lastmod>
+  </url>  <url>
     <loc>http://qingdujun.com/zh-CN/zookeeper-zkclient.html</loc>
     <lastmod>2018-10-10T02:49:42.863Z</lastmod>
   </url>  <url>
