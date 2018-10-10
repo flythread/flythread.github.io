@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</loc>
+    
+    <lastmod>2018-10-10T09:14:09.829Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://byteparallel.github.io/zh-CN/memcached-env-config.html</loc>
     
     <lastmod>2018-10-10T09:11:15.916Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html</loc>
     
     <lastmod>2018-10-10T07:07:12.883Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</loc>
-    
-    <lastmod>2018-10-10T06:49:25.865Z</lastmod>
     
   </url>
   

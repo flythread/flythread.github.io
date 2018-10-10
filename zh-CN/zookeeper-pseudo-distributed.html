@@ -158,19 +158,19 @@
 
 
 
-  <meta name="description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
+  <meta name="description" content="根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
 <meta name="keywords" content="ZooKeeper">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
 <meta property="og:url" content="https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html">
 <meta property="og:site_name" content="Byte Parallel">
-<meta property="og:description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
+<meta property="og:description" content="根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
-<meta property="og:updated_time" content="2018-10-10T06:49:25.865Z">
+<meta property="og:updated_time" content="2018-10-10T09:14:09.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
-<meta name="twitter:description" content="根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
+<meta name="twitter:description" content="根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
 <meta name="twitter:image" content="https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
 
 
@@ -452,7 +452,7 @@
                 
               
 
-              <time title="创建时间：2018-10-10 10:57:16 / 修改时间：14:49:25" itemprop="dateCreated datePublished" datetime="2018-10-10T10:57:16+08:00">2018-10-10</time>
+              <time title="创建时间：2018-10-10 10:57:16 / 修改时间：17:14:09" itemprop="dateCreated datePublished" datetime="2018-10-10T10:57:16+08:00">2018-10-10</time>
             
 
             
@@ -519,7 +519,7 @@
       
 
       
-        <p>根据Zab协议的$2*n+1$的原则（超过半数），ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用<code>虚拟机技术</code>、<code>容器技术</code>或者是本文将要介绍的<code>多端口伪分布式技术</code>。</p>
+        <p>根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用<code>虚拟机技术</code>、<code>容器技术</code>或者是本文将要介绍的<code>多端口伪分布式技术</code>。</p>
 <img src="/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
 <a id="more"></a>
 <h3 id="配置zoo-cfg文件"><a href="#配置zoo-cfg文件" class="headerlink" title="配置zoo.cfg文件"></a>配置zoo.cfg文件</h3><p>由于我只有一台服务器，只有一个IP地址，以下采用<strong>多端口运行多个ZooKeeper</strong>构建伪分布式集群。</p>
