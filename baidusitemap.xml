@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://byteparallel.github.io/zh-CN/lucene-env-config.html</loc>
+    <lastmod>2018-10-10T07:08:13.152Z</lastmod>
+  </url>  <url>
+    <loc>https://byteparallel.github.io/zh-CN/lucene-arch.html</loc>
+    <lastmod>2018-10-10T07:07:58.483Z</lastmod>
+  </url>  <url>
+    <loc>https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html</loc>
+    <lastmod>2018-10-10T07:07:12.883Z</lastmod>
+  </url>  <url>
     <loc>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</loc>
-    <lastmod>2018-10-10T03:39:04.164Z</lastmod>
+    <lastmod>2018-10-10T06:49:25.865Z</lastmod>
   </url>  <url>
     <loc>https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html</loc>
     <lastmod>2018-10-10T02:49:42.863Z</lastmod>
@@ -21,15 +30,6 @@
   </url>  <url>
     <loc>https://byteparallel.github.io/zh-CN/vmware-ubuntu-env-config.html</loc>
     <lastmod>2018-10-09T01:32:29.000Z</lastmod>
-  </url>  <url>
-    <loc>https://byteparallel.github.io/zh-CN/lucene-arch.html</loc>
-    <lastmod>2018-09-20T04:18:56.000Z</lastmod>
-  </url>  <url>
-    <loc>https://byteparallel.github.io/zh-CN/lucene-env-config.html</loc>
-    <lastmod>2018-09-20T03:58:00.000Z</lastmod>
-  </url>  <url>
-    <loc>https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html</loc>
-    <lastmod>2018-09-18T06:40:36.000Z</lastmod>
   </url>  <url>
     <loc>https://byteparallel.github.io/zh-CN/hello-world.html</loc>
     <lastmod>2018-09-18T05:48:56.000Z</lastmod>
