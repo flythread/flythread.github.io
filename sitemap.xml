@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qingdujun.com/zh-CN/zookeeper-zkclient.html</loc>
+    
+    <lastmod>2018-10-10T02:49:42.863Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qingdujun.com/zh-CN/ssh-config-remote-file.html</loc>
     
     <lastmod>2018-10-09T12:15:44.898Z</lastmod>

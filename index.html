@@ -358,6 +358,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/zookeeper-zkclient.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DUJUN QING">
+      <meta itemprop="description" content="关注分布式架构与搜索技术...">
+      <meta itemprop="image" content="https://tvax3.sinaimg.cn/crop.0.0.664.664.180/e4cde9f6ly8fhcbub5h0bj20ig0igmxq.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Byte Parallel">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh-CN/zookeeper-zkclient.html" itemprop="url">
+                  分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-10 10:17:53 / Modified: 10:49:42" itemprop="dateCreated datePublished" datetime="2018-10-10T10:17:53+08:00">2018-10-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/System-Architecture/" itemprop="url" rel="index"><span itemprop="name">System Architecture</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh-CN/zookeeper-zkclient.html" class="leancloud_visitors" data-flag-title="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>zkClient解决了watcher的一次性注册问题，将znode的事件重新定义为<strong>子节点的变化</strong>、<strong>数据的变化</strong>、<strong>连接以及状态的变化</strong>三类，由zkClient统一将watcher的WatcherEvent转换到以上三种情况中去处理，watcher执行后重新读取数据的同时，再注册相同的watcher。<br><img src="/zh-CN/zookeeper-zkclient/zkclientjar.png"><br>zkClient是GitHub上的开源项目：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://github.com/sgroschupf/zkclient</span><br><span class="line">//$ git <span class="built_in">clone</span> https://github.com/sgroschupf/zkclient.git</span><br></pre></td></tr></table></figure></p>
+
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/zh-CN/zookeeper-zkclient.html" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1989,7 +2164,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2049,7 +2224,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2671,6 +2848,8 @@
 
   
   
+    
+      
     
       
     
