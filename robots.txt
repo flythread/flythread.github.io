@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /zh-CN/
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/ 
@@ -11,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://qingdujun.com/sitemap.xml
-Sitemap: https://qingdujun.com/baidusitemap.xml
+Sitemap: https://byteparallel.github.io/sitemap.xml
+Sitemap: https://byteparallel.github.io/baidusitemap.xml

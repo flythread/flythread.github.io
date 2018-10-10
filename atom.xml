@@ -5,9 +5,9 @@
   <subtitle>并行的字节，在平行的宇宙中穿梭？！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://qingdujun.com/"/>
+  <link href="https://byteparallel.github.io/"/>
   <updated>2018-10-10T03:39:04.164Z</updated>
-  <id>http://qingdujun.com/</id>
+  <id>https://byteparallel.github.io/</id>
   
   <author>
     <name>DUJUN QING</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>分布式架构——第4篇：构建ZooKeeper伪分布式集群</title>
-    <link href="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html"/>
-    <id>http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html"/>
+    <id>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</id>
     <published>2018-10-10T02:57:16.000Z</published>
     <updated>2018-10-10T03:39:04.164Z</updated>
     
@@ -32,17 +32,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</title>
-    <link href="http://qingdujun.com/zh-CN/zookeeper-zkclient.html"/>
-    <id>http://qingdujun.com/zh-CN/zookeeper-zkclient.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html"/>
+    <id>https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html</id>
     <published>2018-10-10T02:17:53.000Z</published>
     <updated>2018-10-10T02:49:42.863Z</updated>
     
@@ -54,19 +54,19 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
     
-      <category term="zkClient" scheme="http://qingdujun.com/tags/zkClient/"/>
+      <category term="zkClient" scheme="https://byteparallel.github.io/tags/zkClient/"/>
     
   </entry>
   
   <entry>
     <title>ssh配置以及远程文件传输</title>
-    <link href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html"/>
-    <id>http://qingdujun.com/zh-CN/ssh-config-remote-file.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/ssh-config-remote-file.html"/>
+    <id>https://byteparallel.github.io/zh-CN/ssh-config-remote-file.html</id>
     <published>2018-10-09T11:50:23.000Z</published>
     <updated>2018-10-09T12:15:44.898Z</updated>
     
@@ -78,17 +78,17 @@
     
     </summary>
     
-      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
+      <category term="Coding Interviews" scheme="https://byteparallel.github.io/categories/Coding-Interviews/"/>
     
     
-      <category term="ssh" scheme="http://qingdujun.com/tags/ssh/"/>
+      <category term="ssh" scheme="https://byteparallel.github.io/tags/ssh/"/>
     
   </entry>
   
   <entry>
     <title>关于Ubuntu修改用户名造成无法登录的补救措施</title>
-    <link href="http://qingdujun.com/zh-CN/ubuntu-modify-username.html"/>
-    <id>http://qingdujun.com/zh-CN/ubuntu-modify-username.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/ubuntu-modify-username.html"/>
+    <id>https://byteparallel.github.io/zh-CN/ubuntu-modify-username.html</id>
     <published>2018-10-08T16:50:15.000Z</published>
     <updated>2018-10-09T08:23:00.000Z</updated>
     
@@ -103,17 +103,17 @@
     
     </summary>
     
-      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
+      <category term="Coding Interviews" scheme="https://byteparallel.github.io/categories/Coding-Interviews/"/>
     
     
-      <category term="Linux" scheme="http://qingdujun.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://byteparallel.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第2篇：ZooKeeper API实战</title>
-    <link href="http://qingdujun.com/zh-CN/zookeeper-api-in-action.html"/>
-    <id>http://qingdujun.com/zh-CN/zookeeper-api-in-action.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/zookeeper-api-in-action.html"/>
+    <id>https://byteparallel.github.io/zh-CN/zookeeper-api-in-action.html</id>
     <published>2018-10-08T12:02:21.000Z</published>
     <updated>2018-10-09T06:25:09.000Z</updated>
     
@@ -126,17 +126,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第1篇：ZooKeeper安装</title>
-    <link href="http://qingdujun.com/zh-CN/zookeeper-install-conf.html"/>
-    <id>http://qingdujun.com/zh-CN/zookeeper-install-conf.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/zookeeper-install-conf.html"/>
+    <id>https://byteparallel.github.io/zh-CN/zookeeper-install-conf.html</id>
     <published>2018-10-08T10:16:19.000Z</published>
     <updated>2018-10-09T01:33:16.000Z</updated>
     
@@ -149,17 +149,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第0篇：VMware环境配置</title>
-    <link href="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html"/>
-    <id>http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/vmware-ubuntu-env-config.html"/>
+    <id>https://byteparallel.github.io/zh-CN/vmware-ubuntu-env-config.html</id>
     <published>2018-10-06T22:41:06.000Z</published>
     <updated>2018-10-09T01:32:29.000Z</updated>
     
@@ -172,27 +172,27 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
     
     
-      <category term="VMware" scheme="http://qingdujun.com/tags/VMware/"/>
+      <category term="VMware" scheme="https://byteparallel.github.io/tags/VMware/"/>
     
-      <category term="MyEclipse" scheme="http://qingdujun.com/tags/MyEclipse/"/>
+      <category term="MyEclipse" scheme="https://byteparallel.github.io/tags/MyEclipse/"/>
     
-      <category term="JDK" scheme="http://qingdujun.com/tags/JDK/"/>
+      <category term="JDK" scheme="https://byteparallel.github.io/tags/JDK/"/>
     
-      <category term="Tomcat" scheme="http://qingdujun.com/tags/Tomcat/"/>
+      <category term="Tomcat" scheme="https://byteparallel.github.io/tags/Tomcat/"/>
     
-      <category term="nodejs" scheme="http://qingdujun.com/tags/nodejs/"/>
+      <category term="nodejs" scheme="https://byteparallel.github.io/tags/nodejs/"/>
     
-      <category term="npm" scheme="http://qingdujun.com/tags/npm/"/>
+      <category term="npm" scheme="https://byteparallel.github.io/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title>搜索篇（1）Lucene全文检索工具库架构</title>
-    <link href="http://qingdujun.com/zh-CN/lucene-arch.html"/>
-    <id>http://qingdujun.com/zh-CN/lucene-arch.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/lucene-arch.html"/>
+    <id>https://byteparallel.github.io/zh-CN/lucene-arch.html</id>
     <published>2018-09-20T12:06:52.000Z</published>
     <updated>2018-09-20T04:18:56.000Z</updated>
     
@@ -204,21 +204,21 @@
     
     </summary>
     
-      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
+      <category term="Artificial Intelligence" scheme="https://byteparallel.github.io/categories/Artificial-Intelligence/"/>
     
     
-      <category term="搜索引擎" scheme="http://qingdujun.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+      <category term="搜索引擎" scheme="https://byteparallel.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
-      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
+      <category term="Lucene" scheme="https://byteparallel.github.io/tags/Lucene/"/>
     
-      <category term="架构" scheme="http://qingdujun.com/tags/%E6%9E%B6%E6%9E%84/"/>
+      <category term="架构" scheme="https://byteparallel.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>搜索篇（0）Lucene环境配置</title>
-    <link href="http://qingdujun.com/zh-CN/lucene-env-config.html"/>
-    <id>http://qingdujun.com/zh-CN/lucene-env-config.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/lucene-env-config.html"/>
+    <id>https://byteparallel.github.io/zh-CN/lucene-env-config.html</id>
     <published>2018-09-20T11:49:01.000Z</published>
     <updated>2018-09-20T03:58:00.000Z</updated>
     
@@ -230,19 +230,19 @@
     
     </summary>
     
-      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
+      <category term="Artificial Intelligence" scheme="https://byteparallel.github.io/categories/Artificial-Intelligence/"/>
     
     
-      <category term="搜索引擎" scheme="http://qingdujun.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+      <category term="搜索引擎" scheme="https://byteparallel.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
-      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
+      <category term="Lucene" scheme="https://byteparallel.github.io/tags/Lucene/"/>
     
   </entry>
   
   <entry>
     <title>字符串哈希算法——BKDRHash</title>
-    <link href="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html"/>
-    <id>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html"/>
+    <id>https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html</id>
     <published>2018-09-18T12:24:59.000Z</published>
     <updated>2018-09-18T06:40:36.000Z</updated>
     
@@ -254,17 +254,17 @@
     
     </summary>
     
-      <category term="Mathematics" scheme="http://qingdujun.com/categories/Mathematics/"/>
+      <category term="Mathematics" scheme="https://byteparallel.github.io/categories/Mathematics/"/>
     
     
-      <category term="哈希" scheme="http://qingdujun.com/tags/%E5%93%88%E5%B8%8C/"/>
+      <category term="哈希" scheme="https://byteparallel.github.io/tags/%E5%93%88%E5%B8%8C/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://qingdujun.com/zh-CN/hello-world.html"/>
-    <id>http://qingdujun.com/zh-CN/hello-world.html</id>
+    <link href="https://byteparallel.github.io/zh-CN/hello-world.html"/>
+    <id>https://byteparallel.github.io/zh-CN/hello-world.html</id>
     <published>2018-09-18T12:18:45.000Z</published>
     <updated>2018-09-18T05:48:56.000Z</updated>
     
