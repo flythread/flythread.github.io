@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://byteparallel.github.io/zh-CN/memcache-api-for-java.html</loc>
+    <lastmod>2018-10-11T11:23:26.008Z</lastmod>
+  </url>  <url>
     <loc>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</loc>
     <lastmod>2018-10-10T09:14:09.829Z</lastmod>
   </url>  <url>
