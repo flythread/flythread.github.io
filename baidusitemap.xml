@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://qingdujun.com/zh-CN/memcache-api-for-java.html</loc>
+    <lastmod>2018-10-11T12:50:01.451Z</lastmod>
+  </url>  <url>
     <loc>http://qingdujun.com/zh-CN/lucene-arch.html</loc>
     <lastmod>2018-10-11T12:47:52.430Z</lastmod>
   </url>  <url>
@@ -27,9 +30,6 @@
   </url>  <url>
     <loc>http://qingdujun.com/zh-CN/zookeeper-zkclient.html</loc>
     <lastmod>2018-10-11T12:43:16.136Z</lastmod>
-  </url>  <url>
-    <loc>http://qingdujun.com/zh-CN/memcache-api-for-java.html</loc>
-    <lastmod>2018-10-11T12:42:40.582Z</lastmod>
   </url>  <url>
     <loc>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</loc>
     <lastmod>2018-10-11T12:41:16.003Z</lastmod>
