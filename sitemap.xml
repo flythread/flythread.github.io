@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://byteparallel.github.io/rank/index.html</loc>
+    
+    <lastmod>2018-10-11T11:40:09.668Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://byteparallel.github.io/about/index.html</loc>
     
     <lastmod>2018-10-11T11:38:53.154Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://byteparallel.github.io/categories/index.html</loc>
     
     <lastmod>2018-10-11T11:29:12.696Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/rank/index.html</loc>
-    
-    <lastmod>2018-10-11T11:28:25.364Z</lastmod>
     
   </url>
   
