@@ -5,9 +5,9 @@
   <subtitle>这里有能“击穿”平行宇宙的乱序并行字节流...</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://byteparallel.github.io/"/>
+  <link href="http://qingdujun.com/"/>
   <updated>2018-10-11T11:23:26.008Z</updated>
-  <id>https://byteparallel.github.io/</id>
+  <id>http://qingdujun.com/</id>
   
   <author>
     <name>DUJUN QING</name>
@@ -18,32 +18,32 @@
   
   <entry>
     <title>分布式架构——第6篇：memcache API与分布式缓存</title>
-    <link href="https://byteparallel.github.io/zh-CN/memcache-api-for-java.html"/>
-    <id>https://byteparallel.github.io/zh-CN/memcache-api-for-java.html</id>
+    <link href="http://qingdujun.com/zh-CN/memcache-api-for-java.html"/>
+    <id>http://qingdujun.com/zh-CN/memcache-api-for-java.html</id>
     <published>2018-10-11T01:16:34.000Z</published>
     <updated>2018-10-11T11:23:26.008Z</updated>
     
-    <content type="html"><![CDATA[<p>memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了<code>Memcached-Java-Client</code>工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《<a href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html">分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</a>》，我们首先需要生成<code>memcached.jar</code>包。<br><img src="/zh-CN/memcache-api-for-java/memcached.png"></p><a id="more"></a><h3 id="memcache-初始化"><a href="#memcache-初始化" class="headerlink" title="memcache 初始化"></a>memcache 初始化</h3><p>通过SockIOPool，可以设置与后端缓存服务器的一系列参数，如服务器地址、是否采用容错、初始连接数、最大连接数、最小连接数、线程睡眠时间、是否使用Nagle算法、socket的读取等待超时、是否心跳检测以及Hash算法，等等。<br><strong>e.g.</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">String[] servers = &#123;</span><br><span class="line"><span class="string">"192.168.1.102:11211"</span></span><br><span class="line">&#125;;</span><br><span class="line">SockIOPool pool = SockIOPool.getInstance();</span><br><span class="line">pool.setServers(servers);</span><br><span class="line">pool.setFailover(<span class="keyword">true</span>);</span><br><span class="line">pool.setInitConn(<span class="number">10</span>);</span><br><span class="line">pool.setMinConn(<span class="number">5</span>);</span><br><span class="line">pool.setMaxConn(<span class="number">25</span>);</span><br><span class="line">pool.setMaintSleep(<span class="number">30</span>);</span><br><span class="line">pool.setNagle(<span class="keyword">false</span>);</span><br><span class="line">pool.setSocketTO(<span class="number">3000</span>);</span><br><span class="line">pool.setAliveCheck(<span class="keyword">true</span>);</span><br><span class="line">pool.setHashingAlg(SockIOPool.CONSISTENT_HASH);</span><br><span class="line">pool.initialize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="memcache-API"><a href="#memcache-API" class="headerlink" title="memcache API"></a>memcache API</h3><p>memcache协议支持通过如下几种方式来读、写、失效数据。</p><ul><li>set<br>如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。</li><li>add<br>如果 add 的 key 已经存在，则不会更新数据，之前的值将仍然保持相同，并且您将获得响应 NOT_STORED。</li><li><p>replace<br>如果 key 不存在，则替换失败，并且您将获得响应 NOT_STORED。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MemCachedClient mcc = <span class="keyword">new</span> MemCachedClient();</span><br><span class="line">mcc.add(<span class="string">"hello"</span>, <span class="number">1</span>);</span><br><span class="line">mcc.set(<span class="string">"hello"</span>, <span class="number">2</span>);</span><br><span class="line">mcc.replace(<span class="string">"hello"</span>, <span class="number">3</span>);</span><br><span class="line">Object value = mcc.get(<span class="string">"hello"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//3</span></span><br></pre></td></tr></table></figure></li><li><p>append<br>用于向已存在 key(键) 的 value(数据值) 后面追加数据 。</p></li><li><p>prepend<br>用于向已存在 key(键) 的 value(数据值) 前面追加数据 。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.set(<span class="string">"str"</span>, <span class="string">"BYTE"</span>);</span><br><span class="line">mcc.prepend(<span class="string">"str"</span>, <span class="string">"Hello"</span>);</span><br><span class="line">mcc.append(<span class="string">"str"</span>, <span class="string">"PARALLEL"</span>);</span><br><span class="line">value = mcc.get(<span class="string">"str"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//HelloBYTEPARALLEL</span></span><br></pre></td></tr></table></figure></li><li><p>get<br>获取存储在 key(键) 中的 value(数据值) ，如果 key 不存在，则返回空。</p></li><li><p>gets<br>获取带有 CAS 令牌存 的 value(数据值) ，如果 key 不存在，则返回空。</p></li><li><p>cas<br>用于执行一个”检查并设置”的操作。它仅在当前客户端最后一次取值后，该key 对应的值没有被其他客户端修改的情况下，才能够将值写入。检查是通过cas_token参数进行的， 这个参数是Memcach指定给已经存在的元素的一个唯一的64位值。要在 Memcached 上使用 CAS 命令，你需要从 Memcached 服务商通过 gets 命令获取令牌（token）。gets 命令的功能类似于基本的 get 命令。两个命令之间的差异在于，gets 返回的信息稍微多一些：64 位的整型值非常像名称/值对的 “版本” 标识符。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.set(<span class="string">"atom"</span>, <span class="number">1</span>);</span><br><span class="line">MemcachedItem item = mcc.gets(<span class="string">"atom"</span>);</span><br><span class="line">mcc.cas(<span class="string">"atom"</span>, (Integer)item.getValue()+<span class="number">1</span>, item.getCasUnique());</span><br><span class="line">value = mcc.get(<span class="string">"atom"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></li><li><p>incr、decr<br>incr 与 decr 命令用于对已存在的 key(键) 的数字值进行自增或自减操作。<br><strong>特别注意：</strong> <code>值必须设置为字符串（如&quot;100&quot;）</code>，不然会出错。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.add(<span class="string">"cr"</span>, <span class="string">"100"</span>);</span><br></pre></td></tr></table></figure><p>默认<code>自增1</code>。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.incr(<span class="string">"cr"</span>);</span><br><span class="line">value = mcc.get(<span class="string">"cr"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//101</span></span><br></pre></td></tr></table></figure><p>这里，<code>自减10</code>试试。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.decr(<span class="string">"cr"</span>, <span class="number">10</span>);</span><br><span class="line">value = mcc.get(<span class="string">"cr"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//91</span></span><br></pre></td></tr></table></figure></li></ul><p>References:<br>1 <a href="https://www.w3cschool.cn/memcached/" target="_blank" rel="noopener">https://www.w3cschool.cn/memcached/</a><br>2 大型分布式网站架构设计与实践</p>]]></content>
+    <content type="html"><![CDATA[<p>memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了<code>Memcached-Java-Client</code>工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《<a href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html" target="_blank" rel="noopener">分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</a>》，我们首先需要生成<code>memcached.jar</code>包。<br><img src="/zh-CN/memcache-api-for-java/memcached.png"></p><a id="more"></a><h3 id="memcache-初始化"><a href="#memcache-初始化" class="headerlink" title="memcache 初始化"></a>memcache 初始化</h3><p>通过SockIOPool，可以设置与后端缓存服务器的一系列参数，如服务器地址、是否采用容错、初始连接数、最大连接数、最小连接数、线程睡眠时间、是否使用Nagle算法、socket的读取等待超时、是否心跳检测以及Hash算法，等等。<br><strong>e.g.</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">String[] servers = &#123;</span><br><span class="line"><span class="string">"192.168.1.102:11211"</span></span><br><span class="line">&#125;;</span><br><span class="line">SockIOPool pool = SockIOPool.getInstance();</span><br><span class="line">pool.setServers(servers);</span><br><span class="line">pool.setFailover(<span class="keyword">true</span>);</span><br><span class="line">pool.setInitConn(<span class="number">10</span>);</span><br><span class="line">pool.setMinConn(<span class="number">5</span>);</span><br><span class="line">pool.setMaxConn(<span class="number">25</span>);</span><br><span class="line">pool.setMaintSleep(<span class="number">30</span>);</span><br><span class="line">pool.setNagle(<span class="keyword">false</span>);</span><br><span class="line">pool.setSocketTO(<span class="number">3000</span>);</span><br><span class="line">pool.setAliveCheck(<span class="keyword">true</span>);</span><br><span class="line">pool.setHashingAlg(SockIOPool.CONSISTENT_HASH);</span><br><span class="line">pool.initialize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="memcache-API"><a href="#memcache-API" class="headerlink" title="memcache API"></a>memcache API</h3><p>memcache协议支持通过如下几种方式来读、写、失效数据。</p><ul><li>set<br>如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。</li><li>add<br>如果 add 的 key 已经存在，则不会更新数据，之前的值将仍然保持相同，并且您将获得响应 NOT_STORED。</li><li><p>replace<br>如果 key 不存在，则替换失败，并且您将获得响应 NOT_STORED。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MemCachedClient mcc = <span class="keyword">new</span> MemCachedClient();</span><br><span class="line">mcc.add(<span class="string">"hello"</span>, <span class="number">1</span>);</span><br><span class="line">mcc.set(<span class="string">"hello"</span>, <span class="number">2</span>);</span><br><span class="line">mcc.replace(<span class="string">"hello"</span>, <span class="number">3</span>);</span><br><span class="line">Object value = mcc.get(<span class="string">"hello"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//3</span></span><br></pre></td></tr></table></figure></li><li><p>append<br>用于向已存在 key(键) 的 value(数据值) 后面追加数据 。</p></li><li><p>prepend<br>用于向已存在 key(键) 的 value(数据值) 前面追加数据 。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.set(<span class="string">"str"</span>, <span class="string">"BYTE"</span>);</span><br><span class="line">mcc.prepend(<span class="string">"str"</span>, <span class="string">"Hello"</span>);</span><br><span class="line">mcc.append(<span class="string">"str"</span>, <span class="string">"PARALLEL"</span>);</span><br><span class="line">value = mcc.get(<span class="string">"str"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//HelloBYTEPARALLEL</span></span><br></pre></td></tr></table></figure></li><li><p>get<br>获取存储在 key(键) 中的 value(数据值) ，如果 key 不存在，则返回空。</p></li><li><p>gets<br>获取带有 CAS 令牌存 的 value(数据值) ，如果 key 不存在，则返回空。</p></li><li><p>cas<br>用于执行一个”检查并设置”的操作。它仅在当前客户端最后一次取值后，该key 对应的值没有被其他客户端修改的情况下，才能够将值写入。检查是通过cas_token参数进行的， 这个参数是Memcach指定给已经存在的元素的一个唯一的64位值。要在 Memcached 上使用 CAS 命令，你需要从 Memcached 服务商通过 gets 命令获取令牌（token）。gets 命令的功能类似于基本的 get 命令。两个命令之间的差异在于，gets 返回的信息稍微多一些：64 位的整型值非常像名称/值对的 “版本” 标识符。<br><strong>e.g.</strong></p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.set(<span class="string">"atom"</span>, <span class="number">1</span>);</span><br><span class="line">MemcachedItem item = mcc.gets(<span class="string">"atom"</span>);</span><br><span class="line">mcc.cas(<span class="string">"atom"</span>, (Integer)item.getValue()+<span class="number">1</span>, item.getCasUnique());</span><br><span class="line">value = mcc.get(<span class="string">"atom"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></li><li><p>incr、decr<br>incr 与 decr 命令用于对已存在的 key(键) 的数字值进行自增或自减操作。<br><strong>特别注意：</strong> <code>值必须设置为字符串（如&quot;100&quot;）</code>，不然会出错。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.add(<span class="string">"cr"</span>, <span class="string">"100"</span>);</span><br></pre></td></tr></table></figure><p>默认<code>自增1</code>。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.incr(<span class="string">"cr"</span>);</span><br><span class="line">value = mcc.get(<span class="string">"cr"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//101</span></span><br></pre></td></tr></table></figure><p>这里，<code>自减10</code>试试。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mcc.decr(<span class="string">"cr"</span>, <span class="number">10</span>);</span><br><span class="line">value = mcc.get(<span class="string">"cr"</span>);</span><br><span class="line">System.out.println(value);<span class="comment">//91</span></span><br></pre></td></tr></table></figure></li></ul><p>References:<br>1 <a href="https://www.w3cschool.cn/memcached/" target="_blank" rel="noopener">https://www.w3cschool.cn/memcached/</a><br>2 大型分布式网站架构设计与实践</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了&lt;code&gt;Memcached-Java-Client&lt;/code&gt;工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《&lt;a href=&quot;https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html&quot;&gt;分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient&lt;/a&gt;》，我们首先需要生成&lt;code&gt;memcached.jar&lt;/code&gt;包。&lt;br&gt;&lt;img src=&quot;/zh-CN/memcache-api-for-java/memcached.png&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了&lt;code&gt;Memcached-Java-Client&lt;/code&gt;工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《&lt;a href=&quot;https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient&lt;/a&gt;》，我们首先需要生成&lt;code&gt;memcached.jar&lt;/code&gt;包。&lt;br&gt;&lt;img src=&quot;/zh-CN/memcache-api-for-java/memcached.png&quot;&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="memcache" scheme="https://byteparallel.github.io/tags/memcache/"/>
+      <category term="memcache" scheme="http://qingdujun.com/tags/memcache/"/>
     
-      <category term="java" scheme="https://byteparallel.github.io/tags/java/"/>
+      <category term="java" scheme="http://qingdujun.com/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第5篇：构建memcache环境</title>
-    <link href="https://byteparallel.github.io/zh-CN/memcached-env-config.html"/>
-    <id>https://byteparallel.github.io/zh-CN/memcached-env-config.html</id>
+    <link href="http://qingdujun.com/zh-CN/memcached-env-config.html"/>
+    <id>http://qingdujun.com/zh-CN/memcached-env-config.html</id>
     <published>2018-10-10T08:35:27.000Z</published>
     <updated>2018-10-10T09:11:15.916Z</updated>
     
@@ -55,17 +55,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="memcache" scheme="https://byteparallel.github.io/tags/memcache/"/>
+      <category term="memcache" scheme="http://qingdujun.com/tags/memcache/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第4篇：构建ZooKeeper伪分布式集群</title>
-    <link href="https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html"/>
-    <id>https://byteparallel.github.io/zh-CN/zookeeper-pseudo-distributed.html</id>
+    <link href="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html"/>
+    <id>http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed.html</id>
     <published>2018-10-10T02:57:16.000Z</published>
     <updated>2018-10-10T09:14:09.829Z</updated>
     
@@ -78,17 +78,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</title>
-    <link href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html"/>
-    <id>https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html</id>
+    <link href="http://qingdujun.com/zh-CN/zookeeper-zkclient.html"/>
+    <id>http://qingdujun.com/zh-CN/zookeeper-zkclient.html</id>
     <published>2018-10-10T02:17:53.000Z</published>
     <updated>2018-10-10T02:49:42.863Z</updated>
     
@@ -100,19 +100,19 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
     
-      <category term="zkClient" scheme="https://byteparallel.github.io/tags/zkClient/"/>
+      <category term="zkClient" scheme="http://qingdujun.com/tags/zkClient/"/>
     
   </entry>
   
   <entry>
     <title>ssh配置以及远程文件传输</title>
-    <link href="https://byteparallel.github.io/zh-CN/ssh-config-remote-file.html"/>
-    <id>https://byteparallel.github.io/zh-CN/ssh-config-remote-file.html</id>
+    <link href="http://qingdujun.com/zh-CN/ssh-config-remote-file.html"/>
+    <id>http://qingdujun.com/zh-CN/ssh-config-remote-file.html</id>
     <published>2018-10-09T11:50:23.000Z</published>
     <updated>2018-10-09T12:15:44.898Z</updated>
     
@@ -124,17 +124,17 @@
     
     </summary>
     
-      <category term="Coding Interviews" scheme="https://byteparallel.github.io/categories/Coding-Interviews/"/>
+      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
     
     
-      <category term="ssh" scheme="https://byteparallel.github.io/tags/ssh/"/>
+      <category term="ssh" scheme="http://qingdujun.com/tags/ssh/"/>
     
   </entry>
   
   <entry>
     <title>关于Ubuntu修改用户名造成无法登录的补救措施</title>
-    <link href="https://byteparallel.github.io/zh-CN/ubuntu-modify-username.html"/>
-    <id>https://byteparallel.github.io/zh-CN/ubuntu-modify-username.html</id>
+    <link href="http://qingdujun.com/zh-CN/ubuntu-modify-username.html"/>
+    <id>http://qingdujun.com/zh-CN/ubuntu-modify-username.html</id>
     <published>2018-10-08T16:50:15.000Z</published>
     <updated>2018-10-09T08:23:00.000Z</updated>
     
@@ -149,17 +149,17 @@
     
     </summary>
     
-      <category term="Coding Interviews" scheme="https://byteparallel.github.io/categories/Coding-Interviews/"/>
+      <category term="Coding Interviews" scheme="http://qingdujun.com/categories/Coding-Interviews/"/>
     
     
-      <category term="Linux" scheme="https://byteparallel.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="http://qingdujun.com/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第2篇：ZooKeeper API实战</title>
-    <link href="https://byteparallel.github.io/zh-CN/zookeeper-api-in-action.html"/>
-    <id>https://byteparallel.github.io/zh-CN/zookeeper-api-in-action.html</id>
+    <link href="http://qingdujun.com/zh-CN/zookeeper-api-in-action.html"/>
+    <id>http://qingdujun.com/zh-CN/zookeeper-api-in-action.html</id>
     <published>2018-10-08T12:02:21.000Z</published>
     <updated>2018-10-09T06:25:09.000Z</updated>
     
@@ -172,17 +172,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第1篇：ZooKeeper安装</title>
-    <link href="https://byteparallel.github.io/zh-CN/zookeeper-install-conf.html"/>
-    <id>https://byteparallel.github.io/zh-CN/zookeeper-install-conf.html</id>
+    <link href="http://qingdujun.com/zh-CN/zookeeper-install-conf.html"/>
+    <id>http://qingdujun.com/zh-CN/zookeeper-install-conf.html</id>
     <published>2018-10-08T10:16:19.000Z</published>
     <updated>2018-10-09T01:33:16.000Z</updated>
     
@@ -195,17 +195,17 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="ZooKeeper" scheme="https://byteparallel.github.io/tags/ZooKeeper/"/>
+      <category term="ZooKeeper" scheme="http://qingdujun.com/tags/ZooKeeper/"/>
     
   </entry>
   
   <entry>
     <title>分布式架构——第0篇：VMware环境配置</title>
-    <link href="https://byteparallel.github.io/zh-CN/vmware-ubuntu-env-config.html"/>
-    <id>https://byteparallel.github.io/zh-CN/vmware-ubuntu-env-config.html</id>
+    <link href="http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html"/>
+    <id>http://qingdujun.com/zh-CN/vmware-ubuntu-env-config.html</id>
     <published>2018-10-06T22:41:06.000Z</published>
     <updated>2018-10-09T01:32:29.000Z</updated>
     
@@ -218,27 +218,27 @@
     
     </summary>
     
-      <category term="System Architecture" scheme="https://byteparallel.github.io/categories/System-Architecture/"/>
+      <category term="System Architecture" scheme="http://qingdujun.com/categories/System-Architecture/"/>
     
     
-      <category term="VMware" scheme="https://byteparallel.github.io/tags/VMware/"/>
+      <category term="VMware" scheme="http://qingdujun.com/tags/VMware/"/>
     
-      <category term="MyEclipse" scheme="https://byteparallel.github.io/tags/MyEclipse/"/>
+      <category term="MyEclipse" scheme="http://qingdujun.com/tags/MyEclipse/"/>
     
-      <category term="JDK" scheme="https://byteparallel.github.io/tags/JDK/"/>
+      <category term="JDK" scheme="http://qingdujun.com/tags/JDK/"/>
     
-      <category term="Tomcat" scheme="https://byteparallel.github.io/tags/Tomcat/"/>
+      <category term="Tomcat" scheme="http://qingdujun.com/tags/Tomcat/"/>
     
-      <category term="nodejs" scheme="https://byteparallel.github.io/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://qingdujun.com/tags/nodejs/"/>
     
-      <category term="npm" scheme="https://byteparallel.github.io/tags/npm/"/>
+      <category term="npm" scheme="http://qingdujun.com/tags/npm/"/>
     
   </entry>
   
   <entry>
     <title>搜索篇（1）Lucene全文检索工具库架构</title>
-    <link href="https://byteparallel.github.io/zh-CN/lucene-arch.html"/>
-    <id>https://byteparallel.github.io/zh-CN/lucene-arch.html</id>
+    <link href="http://qingdujun.com/zh-CN/lucene-arch.html"/>
+    <id>http://qingdujun.com/zh-CN/lucene-arch.html</id>
     <published>2018-09-20T12:06:52.000Z</published>
     <updated>2018-10-10T07:07:58.483Z</updated>
     
@@ -250,19 +250,19 @@
     
     </summary>
     
-      <category term="Artificial Intelligence" scheme="https://byteparallel.github.io/categories/Artificial-Intelligence/"/>
+      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
     
     
-      <category term="Search" scheme="https://byteparallel.github.io/tags/Search/"/>
+      <category term="Search" scheme="http://qingdujun.com/tags/Search/"/>
     
-      <category term="Lucene" scheme="https://byteparallel.github.io/tags/Lucene/"/>
+      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
     
   </entry>
   
   <entry>
     <title>搜索篇（0）Lucene环境配置</title>
-    <link href="https://byteparallel.github.io/zh-CN/lucene-env-config.html"/>
-    <id>https://byteparallel.github.io/zh-CN/lucene-env-config.html</id>
+    <link href="http://qingdujun.com/zh-CN/lucene-env-config.html"/>
+    <id>http://qingdujun.com/zh-CN/lucene-env-config.html</id>
     <published>2018-09-20T11:49:01.000Z</published>
     <updated>2018-10-10T07:08:13.152Z</updated>
     
@@ -274,19 +274,19 @@
     
     </summary>
     
-      <category term="Artificial Intelligence" scheme="https://byteparallel.github.io/categories/Artificial-Intelligence/"/>
+      <category term="Artificial Intelligence" scheme="http://qingdujun.com/categories/Artificial-Intelligence/"/>
     
     
-      <category term="Search" scheme="https://byteparallel.github.io/tags/Search/"/>
+      <category term="Search" scheme="http://qingdujun.com/tags/Search/"/>
     
-      <category term="Lucene" scheme="https://byteparallel.github.io/tags/Lucene/"/>
+      <category term="Lucene" scheme="http://qingdujun.com/tags/Lucene/"/>
     
   </entry>
   
   <entry>
     <title>字符串哈希算法——BKDRHash</title>
-    <link href="https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html"/>
-    <id>https://byteparallel.github.io/zh-CN/str-hash-func-bkdrhash.html</id>
+    <link href="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html"/>
+    <id>http://qingdujun.com/zh-CN/str-hash-func-bkdrhash.html</id>
     <published>2018-09-18T12:24:59.000Z</published>
     <updated>2018-10-10T07:07:12.883Z</updated>
     
@@ -298,17 +298,17 @@
     
     </summary>
     
-      <category term="Mathematics" scheme="https://byteparallel.github.io/categories/Mathematics/"/>
+      <category term="Mathematics" scheme="http://qingdujun.com/categories/Mathematics/"/>
     
     
-      <category term="Hash" scheme="https://byteparallel.github.io/tags/Hash/"/>
+      <category term="Hash" scheme="http://qingdujun.com/tags/Hash/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://byteparallel.github.io/zh-CN/hello-world.html"/>
-    <id>https://byteparallel.github.io/zh-CN/hello-world.html</id>
+    <link href="http://qingdujun.com/zh-CN/hello-world.html"/>
+    <id>http://qingdujun.com/zh-CN/hello-world.html</id>
     <published>2018-09-18T12:18:45.000Z</published>
     <updated>2018-09-18T05:48:56.000Z</updated>
     

@@ -162,16 +162,16 @@
 <meta name="keywords" content="memcache,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式架构——第6篇：memcache API与分布式缓存">
-<meta property="og:url" content="https://byteparallel.github.io/zh-CN/memcache-api-for-java.html">
+<meta property="og:url" content="http://qingdujun.com/zh-CN/memcache-api-for-java.html">
 <meta property="og:site_name" content="BYTE PARALLEL">
 <meta property="og:description" content="memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了Memcached-Java-Client工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient》，我们首先需要生成memcached.jar包。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://byteparallel.github.io/zh-CN/memcache-api-for-java/memcached.png">
+<meta property="og:image" content="http://qingdujun.com/zh-CN/memcache-api-for-java/memcached.png">
 <meta property="og:updated_time" content="2018-10-11T11:23:26.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第6篇：memcache API与分布式缓存">
 <meta name="twitter:description" content="memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了Memcached-Java-Client工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient》，我们首先需要生成memcached.jar包。">
-<meta name="twitter:image" content="https://byteparallel.github.io/zh-CN/memcache-api-for-java/memcached.png">
+<meta name="twitter:image" content="http://qingdujun.com/zh-CN/memcache-api-for-java/memcached.png">
 
 
 
@@ -180,7 +180,7 @@
 
 
 
-  <link rel="canonical" href="https://byteparallel.github.io/zh-CN/memcache-api-for-java.html"/>
+  <link rel="canonical" href="http://qingdujun.com/zh-CN/memcache-api-for-java.html"/>
 
 
 
@@ -410,7 +410,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://byteparallel.github.io/zh-CN/memcache-api-for-java.html">
+    <link itemprop="mainEntityOfPage" href="http://qingdujun.com/zh-CN/memcache-api-for-java.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DUJUN QING">
@@ -519,7 +519,7 @@
       
 
       
-        <p>memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了<code>Memcached-Java-Client</code>工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《<a href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html">分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</a>》，我们首先需要生成<code>memcached.jar</code>包。<br><img src="/zh-CN/memcache-api-for-java/memcached.png"></p>
+        <p>memcache客户端与服务端通过构建在TCP协议之上的memcache协议来通信。官方提供了<code>Memcached-Java-Client</code>工具，包含了对memcache协议的Java封装。与ZooKeeper的zkClient第三方工具类似，请参考《<a href="https://byteparallel.github.io/zh-CN/zookeeper-zkclient.html" target="_blank" rel="noopener">分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient</a>》，我们首先需要生成<code>memcached.jar</code>包。<br><img src="/zh-CN/memcache-api-for-java/memcached.png"></p>
 <a id="more"></a>
 <h3 id="memcache-初始化"><a href="#memcache-初始化" class="headerlink" title="memcache 初始化"></a>memcache 初始化</h3><p>通过SockIOPool，可以设置与后端缓存服务器的一系列参数，如服务器地址、是否采用容错、初始连接数、最大连接数、最小连接数、线程睡眠时间、是否使用Nagle算法、socket的读取等待超时、是否心跳检测以及Hash算法，等等。<br><strong>e.g.</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	String[] servers = &#123;</span><br><span class="line">			<span class="string">"192.168.1.102:11211"</span></span><br><span class="line">	&#125;;</span><br><span class="line">	SockIOPool pool = SockIOPool.getInstance();</span><br><span class="line">	pool.setServers(servers);</span><br><span class="line">	pool.setFailover(<span class="keyword">true</span>);</span><br><span class="line">	pool.setInitConn(<span class="number">10</span>);</span><br><span class="line">	pool.setMinConn(<span class="number">5</span>);</span><br><span class="line">	pool.setMaxConn(<span class="number">25</span>);</span><br><span class="line">	pool.setMaintSleep(<span class="number">30</span>);</span><br><span class="line">	pool.setNagle(<span class="keyword">false</span>);</span><br><span class="line">	pool.setSocketTO(<span class="number">3000</span>);</span><br><span class="line">	pool.setAliveCheck(<span class="keyword">true</span>);</span><br><span class="line">	pool.setHashingAlg(SockIOPool.CONSISTENT_HASH);</span><br><span class="line">	pool.initialize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="memcache-API"><a href="#memcache-API" class="headerlink" title="memcache API"></a>memcache API</h3><p>memcache协议支持通过如下几种方式来读、写、失效数据。</p>
