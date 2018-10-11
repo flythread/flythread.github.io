@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://byteparallel.github.io/about/index.html</loc>
+    
+    <lastmod>2018-10-11T11:37:58.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://byteparallel.github.io/tags/index.html</loc>
+    
+    <lastmod>2018-10-11T11:29:35.872Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://byteparallel.github.io/categories/index.html</loc>
+    
+    <lastmod>2018-10-11T11:29:12.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://byteparallel.github.io/rank/index.html</loc>
+    
+    <lastmod>2018-10-11T11:28:25.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://byteparallel.github.io/zh-CN/memcache-api-for-java.html</loc>
     
     <lastmod>2018-10-11T11:23:26.008Z</lastmod>
@@ -89,34 +117,6 @@
     <loc>https://byteparallel.github.io/zh-CN/hello-world.html</loc>
     
     <lastmod>2018-09-18T05:48:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/categories/index.html</loc>
-    
-    <lastmod>2018-09-18T04:35:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-09-18T04:35:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/rank/index.html</loc>
-    
-    <lastmod>2018-09-18T01:35:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://byteparallel.github.io/about/index.html</loc>
-    
-    <lastmod>2018-09-18T01:34:50.000Z</lastmod>
     
   </url>
   
