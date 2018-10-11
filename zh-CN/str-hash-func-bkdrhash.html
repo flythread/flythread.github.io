@@ -167,7 +167,7 @@
 <meta property="og:description" content="BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qingdujun.com/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg">
-<meta property="og:updated_time" content="2018-10-10T07:07:12.883Z">
+<meta property="og:updated_time" content="2018-10-11T12:41:16.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串哈希算法——BKDRHash">
 <meta name="twitter:description" content="BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。">
@@ -469,7 +469,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-10 15:07:12" itemprop="dateModified" datetime="2018-10-10T15:07:12+08:00">2018-10-10</time>
+                <time title="修改时间：2018-10-11 20:41:16" itemprop="dateModified" datetime="2018-10-11T20:41:16+08:00">2018-10-11</time>
               
             
           </span>
@@ -533,9 +533,9 @@
       
         <p>BYVoid对常用的几种字符串哈希函数进行了一次小小的评测。其评测结果，按照得分从高到低依次为BKDRHash，APHash，DJBHash，JSHash，RSHash，SDBMHash，PJWHash，ELFHash。<br><img src="/zh-CN/str-hash-func-bkdrhash/str-hash.jpeg"></p>
 <a id="more"></a>
-<p>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中，最优的字符串哈希算法BKDRHash函数实现如下：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BKDR Hash Function</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">BKDRHash</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *str)</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> seed = <span class="number">131</span>; <span class="comment">// 31 131 1313 13131 131313 etc..</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*str)&#123;</span><br><span class="line">        hash = hash * seed + (*str++);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>比如，哈希字符串“Hello,World!”将会得到数字“632968537”。</p>
-<p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare，2018-09-18</a></p>
+<p>References:<br>[1] <a href="https://www.byvoid.com/zhs/blog/string-hash-compare" target="_blank" rel="noopener">https://www.byvoid.com/zhs/blog/string-hash-compare</a></p>
 
       
     </div>

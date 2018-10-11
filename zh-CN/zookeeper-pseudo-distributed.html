@@ -167,7 +167,7 @@
 <meta property="og:description" content="根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qingdujun.com/zh-CN/zookeeper-pseudo-distributed/zookeeper123.png">
-<meta property="og:updated_time" content="2018-10-10T09:14:09.829Z">
+<meta property="og:updated_time" content="2018-10-11T12:47:07.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
 <meta name="twitter:description" content="根据Zab协议的（$2*n+1$）的原则，即超过半数。故，ZooKeeper至少需要3台以上的机器才能构成集群。对于手中目前没有多台机器的，可以使用虚拟机技术、容器技术或者是本文将要介绍的多端口伪分布式技术。">
@@ -452,12 +452,24 @@
                 
               
 
-              <time title="创建时间：2018-10-10 10:57:16 / 修改时间：17:14:09" itemprop="dateCreated datePublished" datetime="2018-10-10T10:57:16+08:00">2018-10-10</time>
+              <time title="创建时间：2018-10-10 10:57:16" itemprop="dateCreated datePublished" datetime="2018-10-10T10:57:16+08:00">2018-10-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-11 20:47:07" itemprop="dateModified" datetime="2018-10-11T20:47:07+08:00">2018-10-11</time>
               
             
           </span>
@@ -545,7 +557,7 @@
 <h4 id="异常状态"><a href="#异常状态" class="headerlink" title="异常状态"></a>异常状态</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./zkServer.sh status zoo1.cfg</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /home/byteparallel/Applications/zookeeper/zookeeper-3.4.12/bin/../conf/zoo.cfg</span><br><span class="line">Error contacting service. It is probably not running</span><br></pre></td></tr></table></figure>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>首先，查看zoo1.cfg配置文件中的<code>clientPort</code>是否被占用。果然被占用了。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ netstat -lnp | grep 2181</span><br><span class="line">(Not all processes could be identified, non-owned process info</span><br><span class="line"> will not be shown, you would have to be root to see it all.)</span><br><span class="line">tcp6       0      0 :::2181                 :::*                    LISTEN      2615/java</span><br></pre></td></tr></table></figure></p>
 <h4 id="kill该进程"><a href="#kill该进程" class="headerlink" title="kill该进程"></a>kill该进程</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">byteparallel@server:~/Applications/zookeeper/zookeeper-3.4.12/bin$ <span class="built_in">kill</span> 2615</span><br></pre></td></tr></table></figure>
-<p>References:<br>1 <a href="https://www.cnblogs.com/boright88/p/3170171.html" target="_blank" rel="noopener">ubuntu 查看端口被占用并处理</a><br>2 <a href="https://blog.csdn.net/weiyongle1996/article/details/73733228" target="_blank" rel="noopener">配置zookeeper异常 Error contacting service. It is probably not running.以及java.net.ConnectException: 拒绝连接</a><br>3 <a href="https://blog.csdn.net/luoww1/article/details/76078772" target="_blank" rel="noopener">zookeeper 集群中当前zookeeper 状态查看</a><br>4 <a href="https://blog.csdn.net/hi_kevin/article/details/7089358" target="_blank" rel="noopener">ZooKeeper的安装</a></p>
+<p>References:<br>[1] <a href="https://www.cnblogs.com/boright88/p/3170171.html" target="_blank" rel="noopener">ubuntu 查看端口被占用并处理</a><br>[2] <a href="https://blog.csdn.net/weiyongle1996/article/details/73733228" target="_blank" rel="noopener">配置zookeeper异常 Error contacting service. It is probably not running.以及java.net.ConnectException: 拒绝连接</a><br>[3] <a href="https://blog.csdn.net/luoww1/article/details/76078772" target="_blank" rel="noopener">zookeeper 集群中当前zookeeper 状态查看</a><br>[4] <a href="https://blog.csdn.net/hi_kevin/article/details/7089358" target="_blank" rel="noopener">ZooKeeper的安装</a></p>
 
       
     </div>
