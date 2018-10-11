@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qingdujun.com/zh-CN/memcache-api-for-java.html</loc>
+    
+    <lastmod>2018-10-11T12:28:50.321Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qingdujun.com/rank/index.html</loc>
     
     <lastmod>2018-10-11T11:40:09.668Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://qingdujun.com/categories/index.html</loc>
     
     <lastmod>2018-10-11T11:29:12.696Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qingdujun.com/zh-CN/memcache-api-for-java.html</loc>
-    
-    <lastmod>2018-10-11T11:23:26.008Z</lastmod>
     
   </url>
   
