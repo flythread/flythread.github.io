@@ -158,20 +158,20 @@
 
 
 
-  <meta name="description" content="zkClient解决了watcher的一次性注册问题，将znode的事件重新定义为子节点的变化、数据的变化、连接以及状态的变化三类，由zkClient统一将watcher的WatcherEvent转换到以上三种情况中去处理，watcher执行后重新读取数据的同时，再注册相同的watcher。zkClient是GitHub上的开源项目：https://github.com/sgroschupf/zk">
-<meta name="keywords" content="ZooKeeper,zkClient">
+  <meta name="description" content="在服务器上安装并启动Tomcat9之后，通过http://192.168.1.102:8080/manager/html访问管理页面，报错tomcat 403 Access Denied。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（localhost、127.0.0.1）访问。">
+<meta name="keywords" content="tomcat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
-<meta property="og:url" content="http://flythread.org/zh-CN/zookeeper-zkclient.html">
+<meta property="og:title" content="Ubuntu Tomcat 9 环境配置">
+<meta property="og:url" content="http://flythread.org/zh-CN/ubuntu-tomcat9-config.html">
 <meta property="og:site_name" content="破阵子，飞弦">
-<meta property="og:description" content="zkClient解决了watcher的一次性注册问题，将znode的事件重新定义为子节点的变化、数据的变化、连接以及状态的变化三类，由zkClient统一将watcher的WatcherEvent转换到以上三种情况中去处理，watcher执行后重新读取数据的同时，再注册相同的watcher。zkClient是GitHub上的开源项目：https://github.com/sgroschupf/zk">
+<meta property="og:description" content="在服务器上安装并启动Tomcat9之后，通过http://192.168.1.102:8080/manager/html访问管理页面，报错tomcat 403 Access Denied。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（localhost、127.0.0.1）访问。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://flythread.org/zh-CN/zookeeper-zkclient/zkclientjar.png">
-<meta property="og:updated_time" content="2018-10-11T12:43:16.136Z">
+<meta property="og:image" content="http://flythread.org/zh-CN/ubuntu-tomcat9-config/tomcat9.png">
+<meta property="og:updated_time" content="2018-10-13T14:20:37.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
-<meta name="twitter:description" content="zkClient解决了watcher的一次性注册问题，将znode的事件重新定义为子节点的变化、数据的变化、连接以及状态的变化三类，由zkClient统一将watcher的WatcherEvent转换到以上三种情况中去处理，watcher执行后重新读取数据的同时，再注册相同的watcher。zkClient是GitHub上的开源项目：https://github.com/sgroschupf/zk">
-<meta name="twitter:image" content="http://flythread.org/zh-CN/zookeeper-zkclient/zkclientjar.png">
+<meta name="twitter:title" content="Ubuntu Tomcat 9 环境配置">
+<meta name="twitter:description" content="在服务器上安装并启动Tomcat9之后，通过http://192.168.1.102:8080/manager/html访问管理页面，报错tomcat 403 Access Denied。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（localhost、127.0.0.1）访问。">
+<meta name="twitter:image" content="http://flythread.org/zh-CN/ubuntu-tomcat9-config/tomcat9.png">
 
 
 
@@ -180,7 +180,7 @@
 
 
 
-  <link rel="canonical" href="http://flythread.org/zh-CN/zookeeper-zkclient.html"/>
+  <link rel="canonical" href="http://flythread.org/zh-CN/ubuntu-tomcat9-config.html"/>
 
 
 
@@ -190,7 +190,7 @@
   };
 </script>
 
-  <title>分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient | 破阵子，飞弦</title>
+  <title>Ubuntu Tomcat 9 环境配置 | 破阵子，飞弦</title>
   
 
 
@@ -410,7 +410,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://flythread.org/zh-CN/zookeeper-zkclient.html">
+    <link itemprop="mainEntityOfPage" href="http://flythread.org/zh-CN/ubuntu-tomcat9-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FLY THREAD">
@@ -427,7 +427,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient
+          <h2 class="post-title" itemprop="name headline">Ubuntu Tomcat 9 环境配置
               
             
           </h2>
@@ -452,24 +452,12 @@
                 
               
 
-              <time title="创建时间：2018-10-10 10:17:53" itemprop="dateCreated datePublished" datetime="2018-10-10T10:17:53+08:00">2018-10-10</time>
+              <time title="创建时间：2018-10-13 22:00:26 / 修改时间：22:20:37" itemprop="dateCreated datePublished" datetime="2018-10-13T22:00:26+08:00">2018-10-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-11 20:43:16" itemprop="dateModified" datetime="2018-10-11T20:43:16+08:00">2018-10-11</time>
               
             
           </span>
@@ -486,7 +474,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/System-Architecture/" itemprop="url" rel="index"><span itemprop="name">System Architecture</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Coding-Interviews/" itemprop="url" rel="index"><span itemprop="name">Coding Interviews</span></a></span>
 
                 
                 
@@ -500,7 +488,7 @@
 
           
           
-             <span id="/zh-CN/zookeeper-zkclient.html" class="leancloud_visitors" data-flag-title="分布式架构——第3篇：ZooKeeper第三方客户端工具包zkClient">
+             <span id="/zh-CN/ubuntu-tomcat9-config.html" class="leancloud_visitors" data-flag-title="Ubuntu Tomcat 9 环境配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -531,23 +519,12 @@
       
 
       
-        <p>zkClient解决了watcher的一次性注册问题，将znode的事件重新定义为<strong>子节点的变化</strong>、<strong>数据的变化</strong>、<strong>连接以及状态的变化</strong>三类，由zkClient统一将watcher的WatcherEvent转换到以上三种情况中去处理，watcher执行后重新读取数据的同时，再注册相同的watcher。<br><img src="/zh-CN/zookeeper-zkclient/zkclientjar.png"><br>zkClient是GitHub上的开源项目：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://github.com/sgroschupf/zkclient</span><br><span class="line">//$ git <span class="built_in">clone</span> https://github.com/sgroschupf/zkclient.git</span><br></pre></td></tr></table></figure></p>
+        <p>在服务器上安装并启动Tomcat9之后，通过<code>http://192.168.1.102:8080/manager/html</code>访问管理页面，报错<code>tomcat 403 Access Denied</code>。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（<code>localhost</code>、<code>127.0.0.1</code>）访问。</p>
+<img src="/zh-CN/ubuntu-tomcat9-config/tomcat9.png">
 <a id="more"></a>
-<h3 id="生成jar包"><a href="#生成jar包" class="headerlink" title="生成jar包"></a>生成jar包</h3><p>zkclient在GitHub上只提供了源码，如果要使用它的话，需要自己将其制作成jar包。</p>
-<ol>
-<li>创建一个java工程；</li>
-<li>将git下来的<code>src</code>-&gt;<code>main</code>内容，复制粘贴进项目的<code>src</code>目录中；</li>
-<li>将原来的zkClient项目依赖的<code>lib</code>全部引入进刚新建zkclient的项目；</li>
-<li>生成jar包：Export-&gt;Java-&gt;JAR file-&gt;[命名]（假设命名为<code>zkclient.jar</code>）。</li>
-</ol>
-<h3 id="zkClient开发"><a href="#zkClient开发" class="headerlink" title="zkClient开发"></a>zkClient开发</h3><p>将生成的JAR file名字为zkclient.jar，以及ZooKeeper本来依赖的其他JAR全部导入新项目中，就可以开始开发了。<br>zkClient主要实现了三个订阅事件：</p>
-<h4 id="子节点的变化"><a href="#子节点的变化" class="headerlink" title="子节点的变化"></a>子节点的变化</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">zkClient.subscribeChildChanges(PATH, <span class="keyword">new</span> IZkChildListener() &#123;</span><br><span class="line">			</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleChildChange</span><span class="params">(String arg0, List&lt;String&gt; arg1)</span></span></span><br><span class="line"><span class="function">				<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleChildChange"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="数据的变化"><a href="#数据的变化" class="headerlink" title="数据的变化"></a>数据的变化</h4><p>包括数据被删除、数据改变。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">zkClient.subscribeDataChanges(PATH, <span class="keyword">new</span> IZkDataListener() &#123;</span><br><span class="line">			</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleDataDeleted</span><span class="params">(String arg0)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleDataDeleted"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleDataChange</span><span class="params">(String arg0, Object arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleDataChange"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="连接以及状态的变化"><a href="#连接以及状态的变化" class="headerlink" title="连接以及状态的变化"></a>连接以及状态的变化</h4><p>包括状态改变、Session建立出错、新建Session。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">zkClient.subscribeStateChanges(<span class="keyword">new</span> IZkStateListener() &#123;</span><br><span class="line">			</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleStateChanged</span><span class="params">(KeeperState arg0)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleStateChanged"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleSessionEstablishmentError</span><span class="params">(Throwable arg0)</span></span></span><br><span class="line"><span class="function">				<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleSessionEstablishmentError"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleNewSession</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"handleNewSession"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> org.byteparallel.zkclient;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.I0Itec.zkclient.IZkChildListener;</span><br><span class="line"><span class="keyword">import</span> org.I0Itec.zkclient.IZkDataListener;</span><br><span class="line"><span class="keyword">import</span> org.I0Itec.zkclient.IZkStateListener;</span><br><span class="line"><span class="keyword">import</span> org.I0Itec.zkclient.ZkClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.CreateMode;</span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.Watcher.Event.KeeperState;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZooKeeperClient</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String serverList = <span class="string">"192.168.1.102"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String PATH = <span class="string">"/root"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ZkClient zkClient = <span class="keyword">new</span> ZkClient(serverList);</span><br><span class="line"></span><br><span class="line">		zkClient.subscribeChildChanges(PATH, <span class="keyword">new</span> IZkChildListener() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleChildChange</span><span class="params">(String arg0, List&lt;String&gt; arg1)</span></span></span><br><span class="line"><span class="function">					<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleChildChange"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		zkClient.subscribeDataChanges(PATH, <span class="keyword">new</span> IZkDataListener() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleDataDeleted</span><span class="params">(String arg0)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleDataDeleted"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleDataChange</span><span class="params">(String arg0, Object arg1)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleDataChange"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		zkClient.subscribeStateChanges(<span class="keyword">new</span> IZkStateListener() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleStateChanged</span><span class="params">(KeeperState arg0)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleStateChanged"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleSessionEstablishmentError</span><span class="params">(Throwable arg0)</span></span></span><br><span class="line"><span class="function">					<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleSessionEstablishmentError"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleNewSession</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"handleNewSession"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (!zkClient.exists(PATH))&#123;</span><br><span class="line">			zkClient.createPersistent(PATH);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!zkClient.exists(PATH+<span class="string">"/child"</span>))&#123;</span><br><span class="line">			zkClient.create(PATH+<span class="string">"/child"</span>, <span class="string">"child znode"</span>, CreateMode.EPHEMERAL);</span><br><span class="line">		&#125;</span><br><span class="line">		List&lt;String&gt; children = zkClient.getChildren(PATH);</span><br><span class="line">		System.out.println(children.toString());</span><br><span class="line">		<span class="keyword">int</span> childCount = zkClient.countChildren(PATH);</span><br><span class="line">		System.out.println(childCount);</span><br><span class="line">		zkClient.writeData(PATH+<span class="string">"/child"</span>, <span class="string">"hello everyone"</span>);</span><br><span class="line">		Object obj = zkClient.readData(PATH+<span class="string">"/child"</span>);</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">		zkClient.delete(PATH+<span class="string">"/child"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>References:<br>[1] 大型分布式网站架构设计与实践.陈康贤著</p>
+<h4 id="登录账号配置"><a href="#登录账号配置" class="headerlink" title="登录账号配置"></a>登录账号配置</h4><p>首先，需要修改<code>apache-tomcat-9.0.12/conf/tomcat-users.xml</code>文件配置登录账号、密码以及权限。具体操作为在<code>&lt;tomcat-users&gt;</code>与<code>&lt;/tomcat-users&gt;</code>标签中，添加以下内容，根据自身修改<code>username</code>和<code>password</code>内容。<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"admin"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"admin-gui"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager-gui"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">"tomcat"</span> <span class="attr">password</span>=<span class="string">"s3cret"</span> <span class="attr">roles</span>=<span class="string">"manager-gui,admin-gui"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="外网登录授权"><a href="#外网登录授权" class="headerlink" title="外网登录授权"></a>外网登录授权</h4><p>Tomcat9默认拒绝外网访问，此时需要修改<code>apache-tomcat-9.0.12/webapps/manager/META-INF/context.xml</code>，将其中allow部分配置注释掉。<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  &lt;Valve className="org.apache.catalina.valves.RemoteAddrValve"</span></span><br><span class="line"><span class="comment">         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /&gt;</span></span><br><span class="line"><span class="comment">  &lt;Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>References:<br>[1] <a href="https://blog.csdn.net/guochunyang/article/details/51820066" target="_blank" rel="noopener">TOMCAT 9.0 配置问题 403 Access Denied</a></p>
 
       
     </div>
@@ -568,9 +545,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ZooKeeper/" rel="tag"># ZooKeeper</a>
-          
-            <a href="/tags/zkClient/" rel="tag"># zkClient</a>
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
           
         </div>
       
@@ -583,8 +558,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh-CN/ssh-config-remote-file.html" rel="next" title="ssh配置以及远程文件传输">
-                <i class="fa fa-chevron-left"></i> ssh配置以及远程文件传输
+              <a href="/zh-CN/memcache-api-for-java.html" rel="next" title="分布式架构——第6篇：memcache API与分布式缓存">
+                <i class="fa fa-chevron-left"></i> 分布式架构——第6篇：memcache API与分布式缓存
               </a>
             
           </div>
@@ -592,10 +567,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/zh-CN/zookeeper-pseudo-distributed.html" rel="prev" title="分布式架构——第4篇：构建ZooKeeper伪分布式集群">
-                分布式架构——第4篇：构建ZooKeeper伪分布式集群 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -792,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成jar包"><span class="nav-text">生成jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkClient开发"><span class="nav-text">zkClient开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子节点的变化"><span class="nav-text">子节点的变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据的变化"><span class="nav-text">数据的变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接以及状态的变化"><span class="nav-text">连接以及状态的变化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#登录账号配置"><span class="nav-text">登录账号配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外网登录授权"><span class="nav-text">外网登录授权</span></a></li></ol></div>
             
 
           </div>

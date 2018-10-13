@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://flythread.org/"/>
-  <updated>2018-10-13T05:46:31.111Z</updated>
+  <updated>2018-10-13T14:20:37.322Z</updated>
   <id>http://flythread.org/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu Tomcat 9 环境配置</title>
+    <link href="http://flythread.org/zh-CN/ubuntu-tomcat9-config.html"/>
+    <id>http://flythread.org/zh-CN/ubuntu-tomcat9-config.html</id>
+    <published>2018-10-13T14:00:26.000Z</published>
+    <updated>2018-10-13T14:20:37.322Z</updated>
+    
+    <content type="html"><![CDATA[<p>在服务器上安装并启动Tomcat9之后，通过<code>http://192.168.1.102:8080/manager/html</code>访问管理页面，报错<code>tomcat 403 Access Denied</code>。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（<code>localhost</code>、<code>127.0.0.1</code>）访问。</p><img src="/zh-CN/ubuntu-tomcat9-config/tomcat9.png"><a id="more"></a><h4 id="登录账号配置"><a href="#登录账号配置" class="headerlink" title="登录账号配置"></a>登录账号配置</h4><p>首先，需要修改<code>apache-tomcat-9.0.12/conf/tomcat-users.xml</code>文件配置登录账号、密码以及权限。具体操作为在<code>&lt;tomcat-users&gt;</code>与<code>&lt;/tomcat-users&gt;</code>标签中，添加以下内容，根据自身修改<code>username</code>和<code>password</code>内容。<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"admin"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"admin-gui"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager-gui"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">"tomcat"</span> <span class="attr">password</span>=<span class="string">"s3cret"</span> <span class="attr">roles</span>=<span class="string">"manager-gui,admin-gui"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p><h4 id="外网登录授权"><a href="#外网登录授权" class="headerlink" title="外网登录授权"></a>外网登录授权</h4><p>Tomcat9默认拒绝外网访问，此时需要修改<code>apache-tomcat-9.0.12/webapps/manager/META-INF/context.xml</code>，将其中allow部分配置注释掉。<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  &lt;Valve className="org.apache.catalina.valves.RemoteAddrValve"</span></span><br><span class="line"><span class="comment">         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /&gt;</span></span><br><span class="line"><span class="comment">  &lt;Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure></p><p>References:<br>[1] <a href="https://blog.csdn.net/guochunyang/article/details/51820066" target="_blank" rel="noopener">TOMCAT 9.0 配置问题 403 Access Denied</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在服务器上安装并启动Tomcat9之后，通过&lt;code&gt;http://192.168.1.102:8080/manager/html&lt;/code&gt;访问管理页面，报错&lt;code&gt;tomcat 403 Access Denied&lt;/code&gt;。搜索之后，发现Tomcat9与其他低版本Tomcat略微有些区别，主要在于外网访问授权的问题。Tomcat9管理页面默认是拒绝外网访问的，只允许本地（&lt;code&gt;localhost&lt;/code&gt;、&lt;code&gt;127.0.0.1&lt;/code&gt;）访问。&lt;/p&gt;
+&lt;img src=&quot;/zh-CN/ubuntu-tomcat9-config/tomcat9.png&quot;&gt;
+    
+    </summary>
+    
+      <category term="Coding Interviews" scheme="http://flythread.org/categories/Coding-Interviews/"/>
+    
+    
+      <category term="tomcat" scheme="http://flythread.org/tags/tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式架构——第6篇：memcache API与分布式缓存</title>
