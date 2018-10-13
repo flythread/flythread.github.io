@@ -4,7 +4,14 @@
   <url>
     <loc>http://flythread.org/about/index.html</loc>
     
-    <lastmod>2018-10-13T06:01:08.754Z</lastmod>
+    <lastmod>2018-10-13T13:20:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://flythread.org/zh-CN/memcached-env-config.html</loc>
+    
+    <lastmod>2018-10-13T06:53:38.418Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
     
     <lastmod>2018-10-11T12:47:07.388Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://flythread.org/zh-CN/memcached-env-config.html</loc>
-    
-    <lastmod>2018-10-11T12:46:43.621Z</lastmod>
     
   </url>
   

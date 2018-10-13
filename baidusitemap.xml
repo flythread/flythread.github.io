@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://flythread.org/zh-CN/memcached-env-config.html</loc>
+    <lastmod>2018-10-13T06:53:38.418Z</lastmod>
+  </url>  <url>
     <loc>http://flythread.org/zh-CN/memcache-api-for-java.html</loc>
     <lastmod>2018-10-13T05:46:31.111Z</lastmod>
   </url>  <url>
@@ -9,9 +12,6 @@
   </url>  <url>
     <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
     <lastmod>2018-10-11T12:47:07.388Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/memcached-env-config.html</loc>
-    <lastmod>2018-10-11T12:46:43.621Z</lastmod>
   </url>  <url>
     <loc>http://flythread.org/zh-CN/lucene-env-config.html</loc>
     <lastmod>2018-10-11T12:46:10.870Z</lastmod>
