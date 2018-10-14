@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://flythread.org/zh-CN/null.html</loc>
+    
+    <lastmod>2018-10-14T07:34:51.152Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
+    
+    <lastmod>2018-10-13T14:34:03.628Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://flythread.org/zh-CN/ubuntu-tomcat9-config.html</loc>
     
     <lastmod>2018-10-13T14:20:37.322Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://flythread.org/zh-CN/lucene-arch.html</loc>
     
     <lastmod>2018-10-11T12:47:52.430Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
-    
-    <lastmod>2018-10-11T12:47:07.388Z</lastmod>
     
   </url>
   
