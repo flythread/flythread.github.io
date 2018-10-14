@@ -167,7 +167,7 @@
 <meta property="og:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://flythread.org/zh-CN/ubuntu-server-docker-install/docker.png">
-<meta property="og:updated_time" content="2018-10-14T11:47:30.821Z">
+<meta property="og:updated_time" content="2018-10-14T11:53:37.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io)">
 <meta name="twitter:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
@@ -452,7 +452,7 @@
                 
               
 
-              <time title="创建时间：2018-10-14 15:16:30 / 修改时间：19:47:30" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
+              <time title="创建时间：2018-10-14 15:16:30 / 修改时间：19:53:37" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
             
 
             
@@ -553,7 +553,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.06.1-ce, build e68fc7a</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="Docker-Compose安装"><a href="#Docker-Compose安装" class="headerlink" title="Docker Compose安装"></a>Docker Compose安装</h4><p>docker-compose官网<code>https://docs.docker.com/compose/install/#install-compose</code>的安装指南有些老旧了。在GitHub中可以看到（docker-compose的源码位于<code>https://github.com/docker/compose</code>），目前已经发布到了<code>1.23.0-rc2</code>版本，同时releses中给出了安装方式：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
+<h4 id="Docker-Compose安装（主要用于多容器、多主机环境管理）"><a href="#Docker-Compose安装（主要用于多容器、多主机环境管理）" class="headerlink" title="Docker Compose安装（主要用于多容器、多主机环境管理）"></a>Docker Compose安装（主要用于多容器、多主机环境管理）</h4><p>docker-compose官网<code>https://docs.docker.com/compose/install/#install-compose</code>的安装指南有些老旧了。在GitHub中可以看到（docker-compose的源码位于<code>https://github.com/docker/compose</code>），目前已经发布到了<code>1.23.0-rc2</code>版本，同时releses中给出了安装方式：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>但是，在具体操作的时候。发现使用<code>curl</code>下载安装包奇慢无比。所以，我这里采取在直接在浏览器中下载：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-Linux-x86_64</span><br></pre></td></tr></table></figure></p>
 </blockquote>
@@ -818,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker安装"><span class="nav-text">Docker安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-Compose安装"><span class="nav-text">Docker Compose安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录：一些Docker常用命令"><span class="nav-text">附录：一些Docker常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker安装"><span class="nav-text">Docker安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-Compose安装（主要用于多容器、多主机环境管理）"><span class="nav-text">Docker Compose安装（主要用于多容器、多主机环境管理）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录：一些Docker常用命令"><span class="nav-text">附录：一些Docker常用命令</span></a></li></ol></div>
             
 
           </div>
