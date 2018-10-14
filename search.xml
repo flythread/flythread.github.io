@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io)]]></title>
-    <url>%2Fzh-CN%2Fnull.html</url>
+    <url>%2Fzh-CN%2Fubuntu-server-docker-install.html</url>
     <content type="text"><![CDATA[由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。 移除旧版本Docker $ sudo apt-get remove docker docker-engine docker.io 更新包索引 $ sudo apt-get update 允许通过HTTPS使用存储库 $ sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ software-properties-common 添加Docker官方GPG key $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 确认指纹密钥 $ sudo apt-key fingerprint 0EBFCD88pub 4096R/0EBFCD88 2017-02-22 Key fingerprint = 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88uid Docker Release (CE deb) &lt;docker@docker.com&gt;sub 4096R/F273FCD8 2017-02-22 添加stable repository $ sudo add-apt-repository \ "deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable" 更新包索引（再次） $ sudo apt-get update 安装Docker CE $ sudo apt-get install docker-ce 查看当前版本 $ docker --versionDocker version 18.06.1-ce, build e68fc7a References:[1] https://www.w3cschool.cn/docker/ubuntu-docker-install.html[2] https://docs.docker.com/install/linux/docker-ce/ubuntu/]]></content>
       <categories>
         <category>System Architecture</category>
