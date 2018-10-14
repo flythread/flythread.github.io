@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-cluster-by-docker-compose.html</loc>
+    
+    <lastmod>2018-10-14T14:56:15.282Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://flythread.org/zh-CN/ubuntu-server-docker-install.html</loc>
     
     <lastmod>2018-10-14T11:53:37.578Z</lastmod>
