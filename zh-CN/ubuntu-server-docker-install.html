@@ -167,7 +167,7 @@
 <meta property="og:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://flythread.org/zh-CN/ubuntu-server-docker-install/docker.png">
-<meta property="og:updated_time" content="2018-10-14T11:37:17.502Z">
+<meta property="og:updated_time" content="2018-10-14T11:44:25.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io)">
 <meta name="twitter:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
@@ -452,7 +452,7 @@
                 
               
 
-              <time title="创建时间：2018-10-14 15:16:30 / 修改时间：19:37:17" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
+              <time title="创建时间：2018-10-14 15:16:30 / 修改时间：19:44:25" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
             
 
             
@@ -553,11 +553,13 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker --version</span><br><span class="line">Docker version 18.06.1-ce, build e68fc7a</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="Docker-Compose安装"><a href="#Docker-Compose安装" class="headerlink" title="Docker Compose安装"></a>Docker Compose安装</h4><p><code>docker-compose</code>官网<code>https://docs.docker.com/compose/install/#install-compose</code>的安装指南有些老旧了。而<code>docker-compose</code>的源码位于<code>https://github.com/docker/compose</code>。在GitHub中可以看到，目前已经发布到了<code>1.23.0-rc2</code>版本，同时给出了安装方式：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
+<h4 id="Docker-Compose安装"><a href="#Docker-Compose安装" class="headerlink" title="Docker Compose安装"></a>Docker Compose安装</h4><p>docker-compose官网<code>https://docs.docker.com/compose/install/#install-compose</code>的安装指南有些老旧了。在GitHub中可以看到（docker-compose的源码位于<code>https://github.com/docker/compose</code>），目前已经发布到了<code>1.23.0-rc2</code>版本，同时releses中给出了安装方式：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>但是，在具体操作的时候。发现使用<code>curl</code>下载安装包奇慢无比。所以，我这里采取在直接在浏览器中下载：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://github.com/docker/compose/releases/download/1.23.0-rc2/docker-compose-Linux-x86_64</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>然后，使用<code>ssh</code>上传到我的服务器中。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp docker-compose-Linux-x86_64 flythread@192.168.1.102:~/docs</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>然后，使用<code>ssh</code>上传到我的服务器中。<a href="/zh-CN/ssh-config-remote-file.html">《ssh配置以及远程文件传输》</a><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp docker-compose-Linux-x86_64 flythread@192.168.1.102:~/docs</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <p>安装完成之后，查看一下<code>docker-compose</code>的版本：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.23.0-rc2, build 350a555e</span><br></pre></td></tr></table></figure></p>
 <h4 id="附录：一些Docker常用命令"><a href="#附录：一些Docker常用命令" class="headerlink" title="附录：一些Docker常用命令"></a>附录：一些Docker常用命令</h4><ul>
 <li><p>启动</p>
@@ -571,7 +573,7 @@
 <p><strong>注意：</strong> 停止容器相当于电脑关机（并不是，网吧电脑重置那样），容器中运行的所有服务都会停止。但是<code>docker pull</code>下来的<code>docker images</code>都依然还存在。</p>
 </li>
 </ul>
-<p>References:<br>[1] <a href="https://www.w3cschool.cn/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">https://www.w3cschool.cn/docker/ubuntu-docker-install.html</a><br>[2] <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></p>
+<p>References:<br>[1] <a href="https://www.w3cschool.cn/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">https://www.w3cschool.cn/docker/ubuntu-docker-install.html</a><br>[2] <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a><br>[3] <a href="https://docs.docker.com/compose/install/#install-compose" target="_blank" rel="noopener">https://docs.docker.com/compose/install/#install-compose</a><br>[4] <a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a></p>
 
       
     </div>
