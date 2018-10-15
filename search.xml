@@ -7,6 +7,10 @@
       <categories>
         <category>Coding Interviews</category>
       </categories>
+      <tags>
+        <tag>tp-link</tag>
+        <tag>network</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[分布式架构——第8篇：使用docker-compose构建ZooKeeper分布式集群]]></title>
