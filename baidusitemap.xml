@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://flythread.org/zh-CN/str-hash-func-bkdrhash.html</loc>
+    <lastmod>2018-10-15T02:24:26.642Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/lucene-env-config.html</loc>
+    <lastmod>2018-10-15T02:24:07.764Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/lucene-arch.html</loc>
+    <lastmod>2018-10-15T02:23:59.699Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-cluster-by-docker-compose.html</loc>
+    <lastmod>2018-10-15T02:23:14.548Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
+    <lastmod>2018-10-15T02:22:47.004Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-zkclient.html</loc>
+    <lastmod>2018-10-15T02:22:36.692Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-api-in-action.html</loc>
+    <lastmod>2018-10-15T02:22:23.619Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/zookeeper-install-conf.html</loc>
+    <lastmod>2018-10-15T02:22:11.276Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/vmware-ubuntu-env-config.html</loc>
+    <lastmod>2018-10-15T02:22:01.372Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/ubuntu-tomcat9-config.html</loc>
+    <lastmod>2018-10-15T02:21:35.111Z</lastmod>
+  </url>  <url>
+    <loc>http://flythread.org/zh-CN/ubuntu-modify-username.html</loc>
+    <lastmod>2018-10-15T02:21:06.988Z</lastmod>
+  </url>  <url>
     <loc>http://flythread.org/zh-CN/tp-link-static-ip.html</loc>
     <lastmod>2018-10-15T02:16:15.215Z</lastmod>
   </url>  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-pseudo-distributed.html</loc>
-    <lastmod>2018-10-14T15:05:29.085Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-cluster-by-docker-compose.html</loc>
-    <lastmod>2018-10-14T14:56:15.282Z</lastmod>
-  </url>  <url>
     <loc>http://flythread.org/zh-CN/ubuntu-server-docker-install.html</loc>
     <lastmod>2018-10-14T11:53:37.578Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/ubuntu-tomcat9-config.html</loc>
-    <lastmod>2018-10-13T14:20:37.322Z</lastmod>
   </url>  <url>
     <loc>http://flythread.org/zh-CN/memcached-env-config.html</loc>
     <lastmod>2018-10-13T06:53:38.418Z</lastmod>
@@ -22,32 +46,8 @@
     <loc>http://flythread.org/zh-CN/memcache-api-for-java.html</loc>
     <lastmod>2018-10-13T05:46:31.111Z</lastmod>
   </url>  <url>
-    <loc>http://flythread.org/zh-CN/lucene-arch.html</loc>
-    <lastmod>2018-10-11T12:47:52.430Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/lucene-env-config.html</loc>
-    <lastmod>2018-10-11T12:46:10.870Z</lastmod>
-  </url>  <url>
     <loc>http://flythread.org/zh-CN/ssh-config-remote-file.html</loc>
     <lastmod>2018-10-11T12:44:19.389Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/vmware-ubuntu-env-config.html</loc>
-    <lastmod>2018-10-11T12:44:10.870Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-install-conf.html</loc>
-    <lastmod>2018-10-11T12:43:49.481Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-api-in-action.html</loc>
-    <lastmod>2018-10-11T12:43:36.585Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/zookeeper-zkclient.html</loc>
-    <lastmod>2018-10-11T12:43:16.136Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/str-hash-func-bkdrhash.html</loc>
-    <lastmod>2018-10-11T12:41:16.003Z</lastmod>
-  </url>  <url>
-    <loc>http://flythread.org/zh-CN/ubuntu-modify-username.html</loc>
-    <lastmod>2018-10-09T08:23:00.000Z</lastmod>
   </url>  <url>
     <loc>http://flythread.org/zh-CN/hello-world.html</loc>
     <lastmod>2018-09-18T05:48:56.000Z</lastmod>
