@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://flythread.org/"/>
-  <updated>2018-10-14T14:56:15.282Z</updated>
+  <updated>2018-10-15T02:10:31.865Z</updated>
   <id>http://flythread.org/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TP-LINK路由器固定IP地址上网以及电脑静态IP分配</title>
+    <link href="http://flythread.org/zh-CN/tp-link-static-ip.html"/>
+    <id>http://flythread.org/zh-CN/tp-link-static-ip.html</id>
+    <published>2018-10-15T01:24:04.000Z</published>
+    <updated>2018-10-15T02:10:31.865Z</updated>
+    
+    <content type="html"><![CDATA[<p>遇到的情况是这样的，实验室根据给我分配了一个绑定了<code>MAC</code>地址的<code>IP</code>。我自己有2台式机，所以<code>IP</code>就不够用了。为此，我买了一个路由器。下面根据基本需求，开始配置自己的网络：</p><ul><li>两台式机需要使用固定<code>IP</code>上网；</li><li>我自己的笔记本、手机需要使用<code>DHCP</code>动态<code>IP</code>上网。</li></ul><img src="/zh-CN/tp-link-static-ip/route.png"><a id="more"></a><h4 id="配置TP-LINK路由器"><a href="#配置TP-LINK路由器" class="headerlink" title="配置TP-LINK路由器"></a>配置TP-LINK路由器</h4><p>通过<code>192.168.1.1</code>或者<code>tplogin.cn</code>可以登录到路由器。</p><ol><li><p>上网设置<br>通过路由设置-&gt;上网设置，在基本设置中，将WAN口连接类型为<code>固定IP地址</code>，同时将实验室给的IP地址、子网掩码、网关以及首选DNS服务器填充进去。<br>由于实验室给的IP地址绑定了MAC地址，这里需在高级设置中将WAN口MAC地址设置为<code>使用当前管理PC的MAC地址（MAC地址克隆）</code>。<br><strong>e.g.</strong></p><img src="/zh-CN/tp-link-static-ip/static_ip.png"><img src="/zh-CN/tp-link-static-ip/mac_clone.png"></li><li><p>DHCP服务器<br>由于需要手机、笔记本电脑上网，路由器必须支持动态IP分配。而路由器的动态IP功能是由DHCP来管理的。<br>这里只需要将DHCP服务器打开即可，同时设置一下动态IP的分配区间。（默认的是设置为100至199）<br><strong>e.g.</strong></p><img src="/zh-CN/tp-link-static-ip/dhcp.png"></li><li><p>网关<br>TP-LINK路由器的网关设置（也就是LAN口设置），默认是自动的。这里更改LAN口IP设置为<code>手动</code>，同时将IP地址设置为<code>192.168.1.1</code>，子网掩码设置为<code>255.255.255.0</code>。<br><strong>e.g.</strong></p><img src="/zh-CN/tp-link-static-ip/gateway.png"><p>至此，全部路由器配置完毕，重启路由器。</p></li></ol><h4 id="台式机配置"><a href="#台式机配置" class="headerlink" title="台式机配置"></a>台式机配置</h4><ol><li><p>Windows 10<br>根据以上的路由器配置，可知除了网关（<code>192.168.1.1</code>）以及<code>192.168.1.[100-199]</code>段的IP地址，其他的都可以作为静态IP分配给设备。<br><strong>e.g.</strong></p><img src="/zh-CN/tp-link-static-ip/pc_ipv4.png"></li><li><p>Ubuntu Server 18.04<br>好像，从ubuntu17.04以上（Server版本）网络都是由<code>netplan</code>来管理，这里解释一下各参数的含义：</p><ul><li><code>eno1</code> 指的是网卡名，可以通过<code>$ifconfig</code>或者<code>$ip route show</code>命令查看；</li><li><code>addresses</code> 指定当前主机的IP地址，<code>/24</code>指子网掩码的位数；</li><li><code>nameservers</code> 这里配置，DNS域名解析服务器地址；</li><li><code>dhcp4</code> 由于配置了静态IP，这里将DHCP关闭。</li></ul><p><strong>e.g.</strong></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/netplan/50-cloud-init.yaml</span><br><span class="line">$ sudo vim /etc/netplan/50-cloud-init.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is generated from information provided by</span></span><br><span class="line"><span class="comment"># the datasource.  Changes to it will not persist across an instance.</span></span><br><span class="line"><span class="comment"># To disable cloud-init's network configuration capabilities, write a file</span></span><br><span class="line"><span class="comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span></span><br><span class="line"><span class="comment"># network: &#123;config: disabled&#125;</span></span><br><span class="line"><span class="comment">#network:</span></span><br><span class="line"><span class="comment">#    ethernets:</span></span><br><span class="line"><span class="comment">#        eno1:</span></span><br><span class="line"><span class="comment">#            addresses: []</span></span><br><span class="line"><span class="comment">#            dhcp4: true</span></span><br><span class="line"><span class="comment">#    version: 2</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">network:</span><br><span class="line">    ethernets:</span><br><span class="line">        eno1:</span><br><span class="line">            addresses: [192.168.1.3/24]</span><br><span class="line">            gateway4: 192.168.1.1</span><br><span class="line">            nameservers:</span><br><span class="line">                    addresses: [124.16.136.254]</span><br><span class="line">            dhcp4: no</span><br><span class="line">version: 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ sudo netplan apply</span><br></pre></td></tr></table></figure></li></ol><p>References:<br>[1] <a href="https://blog.csdn.net/zsgcsdn/article/details/78789146" target="_blank" rel="noopener">https://blog.csdn.net/zsgcsdn/article/details/78789146</a><br>[2] <a href="http://192.168.1.1/" target="_blank" rel="noopener">http://192.168.1.1/</a><br>[3] <a href="http://tplogin.cn" target="_blank" rel="noopener">http://tplogin.cn</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;遇到的情况是这样的，实验室根据给我分配了一个绑定了&lt;code&gt;MAC&lt;/code&gt;地址的&lt;code&gt;IP&lt;/code&gt;。我自己有2台式机，所以&lt;code&gt;IP&lt;/code&gt;就不够用了。为此，我买了一个路由器。下面根据基本需求，开始配置自己的网络：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;两台式机需要使用固定&lt;code&gt;IP&lt;/code&gt;上网；&lt;/li&gt;
+&lt;li&gt;我自己的笔记本、手机需要使用&lt;code&gt;DHCP&lt;/code&gt;动态&lt;code&gt;IP&lt;/code&gt;上网。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;/zh-CN/tp-link-static-ip/route.png&quot;&gt;
+    
+    </summary>
+    
+      <category term="Coding Interviews" scheme="http://flythread.org/categories/Coding-Interviews/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>分布式架构——第8篇：使用docker-compose构建ZooKeeper分布式集群</title>
