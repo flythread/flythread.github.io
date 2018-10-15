@@ -163,11 +163,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io)">
 <meta property="og:url" content="http://flythread.org/zh-CN/ubuntu-server-docker-install.html">
-<meta property="og:site_name" content="破阵子，飞弦">
+<meta property="og:site_name" content="飞弦的博客专栏">
 <meta property="og:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://flythread.org/zh-CN/ubuntu-server-docker-install/docker.png">
-<meta property="og:updated_time" content="2018-10-14T11:53:37.578Z">
+<meta property="og:updated_time" content="2018-10-15T10:30:58.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io)">
 <meta name="twitter:description" content="由于服务器是Ubuntu Server版本，按照《W3Cschool Ubuntu Docker 安装》一直报错Unable to locate package docker.io。使用sudo apt update、sudo apt upgrade没有任何效果。最后，参见docker官网的docker-ce版本安装指南《Get Docker CE for Ubuntu》，安装成功。">
@@ -175,7 +175,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="破阵子，飞弦" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="飞弦的博客专栏" type="application/atom+xml" />
 
 
 
@@ -190,7 +190,7 @@
   };
 </script>
 
-  <title>分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io) | 破阵子，飞弦</title>
+  <title>分布式架构——第7篇：Docker环境搭建(Unable to locate package docker.io) | 飞弦的博客专栏</title>
   
 
 
@@ -248,7 +248,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">破阵子，飞弦</span>
+        <span class="site-title">飞弦的博客专栏</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -419,7 +419,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="破阵子，飞弦">
+      <meta itemprop="name" content="飞弦的博客专栏">
     </span>
 
     
@@ -452,12 +452,24 @@
                 
               
 
-              <time title="创建时间：2018-10-14 15:16:30 / 修改时间：19:53:37" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
+              <time title="创建时间：2018-10-14 15:16:30" itemprop="dateCreated datePublished" datetime="2018-10-14T15:16:30+08:00">2018-10-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-15 18:30:58" itemprop="dateModified" datetime="2018-10-15T18:30:58+08:00">2018-10-15</time>
               
             
           </span>
@@ -571,6 +583,8 @@
 <li><p>停止</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service docker stop</span><br></pre></td></tr></table></figure>
 <p><strong>注意：</strong> 停止容器相当于电脑关机（并不是，网吧电脑重置那样），容器中运行的所有服务都会停止。但是<code>docker pull</code>下来的<code>docker images</code>都依然还存在。</p>
+</li>
+<li>启动一个已经终止的容器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker start container_name</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>References:<br>[1] <a href="https://www.w3cschool.cn/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">https://www.w3cschool.cn/docker/ubuntu-docker-install.html</a><br>[2] <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a><br>[3] <a href="https://docs.docker.com/compose/install/#install-compose" target="_blank" rel="noopener">https://docs.docker.com/compose/install/#install-compose</a><br>[4] <a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a></p>
