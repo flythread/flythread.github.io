@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://flythread.org/zh-CN/ubuntu-modify-username.html</loc>
+    
+    <lastmod>2018-10-15T02:30:02.208Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://flythread.org/zh-CN/str-hash-func-bkdrhash.html</loc>
     
     <lastmod>2018-10-15T02:24:26.642Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://flythread.org/zh-CN/ubuntu-tomcat9-config.html</loc>
     
     <lastmod>2018-10-15T02:21:35.111Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://flythread.org/zh-CN/ubuntu-modify-username.html</loc>
-    
-    <lastmod>2018-10-15T02:21:06.988Z</lastmod>
     
   </url>
   
